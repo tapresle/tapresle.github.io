@@ -1,0 +1,120 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+   <title>My project</title>
+    <script src="d3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="cal-heatmap.min.js"></script>
+	<script type="text/javascript">
+		function clearBox(elementID)
+		{
+			document.getElementById(elementID).innerHTML = "";
+		}
+	</script>
+	<link href="cal-heatmap.css" rel="stylesheet">
+   
+ </head>
+ <body>
+	
+	<div id="title"><a href="http://www.bamboomobilehealth.com" target="_blank"><img src="title.png"></a></div>
+	<p>SELECT SYMPTOM</p>
+	<!-- This is old code, may be useful if more symptoms get added
+	<select onChange="displayViz(this) && location.reload()">
+		<option value="PAIN">PAIN</option>
+		<option value="FATIGUE">FATIGUE</option>
+		<option value="MOBILITY">MOBILITY</option>
+		<option value="BRAINFOG">BRAINFOG</option>
+     </select> -->
+	 <button type="button" onClick="displayPain() && location.reload()">PAIN</button>
+	 <button type="button" onClick="displayFatigue() && location.reload()">FATIGUE</button>
+	 <button type="button" onClick="displayMobility() && location.reload()">MOBILITY</button>
+	 <button type="button" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
+	<div id="cal2"></div>
+	<script type="text/javascript">
+		
+		var text = document.getElementById("cal2");
+		// This checks for mobile
+		if( screen.width <= 699) {
+			var calendar = new CalHeatMap();
+			calendar.init({
+			verticalOrientation: true,
+			data: "",
+			dataType: "json",
+			itemSelector: "#cal2",
+			start: new Date(2013, 11),
+			range :3,
+			id : "graph_c",
+			domain: "month",
+			subDomain: "x_day",
+			subDomainTextFormat: "%d",
+			domainGutter: 20,
+			cellSize:55,
+			label: {
+				position: "top"
+			} ,
+			itemName: ["level", "level"],
+			weekStartOnMonday: false,
+			displayLegend: true,
+			legend: [-1,0,1, 2, 3,4] 	// Custom threshold for the scale
+		});
+		}
+		else {
+			var calendar = new CalHeatMap();
+				calendar.init({
+				data: "",
+				dataType: "json",
+				itemSelector: "#cal2",
+				start: new Date(2013, 11),
+				range :3,
+				id : "graph_c",
+				domain: "month",
+				subDomain: "x_day",
+				subDomainTextFormat: "%d",
+				domainGutter: 20,
+				cellSize:55,
+				label: {
+					position: "top"
+				} ,
+				itemName: ["level", "level"],
+				weekStartOnMonday: false,
+				displayLegend: true,
+				legend: [-1,0,1, 2, 3,4] 	// Custom threshold for the scale
+			});
+		}
+		
+		function displayViz(sel){
+		
+			var value = sel.options[sel.selectedIndex].value;
+			
+			if(value == "PAIN")
+				displayPain();
+				
+			if(value == "FATIGUE")
+				displayFatigue();
+			
+			if(value == "MOBILITY")
+				displayMobility();
+				
+			if(value == "BRAINFOG")
+				displayBrainFog();
+				
+		
+		}
+		
+		function displayPain(){
+			calendar.update("samplejson1.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayFatigue(){
+			calendar.update("fatigue.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayMobility(){
+			calendar.update("mobility.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayBrainFog(){
+			calendar.update("brainfog.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+	</script>
+ </body>
+</html>
