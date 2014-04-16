@@ -1,11 +1,19 @@
 /* Cal-HeatMap CSS */
-
+/*
 html {
 	background-image:url('img.png');
 	background-color:#cccccc;
 	text-align: center;
 }
+*/
 
+html { 
+  background: url(img.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 #title {
 	text-align: center;
 
