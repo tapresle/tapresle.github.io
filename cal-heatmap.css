@@ -23,6 +23,9 @@ p {
 	font-size:2em;
 	color: #000000;
 }
+body {
+  font: 10px sans-serif;
+}
 
 .cal-heatmap-container {
 	
