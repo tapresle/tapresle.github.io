@@ -165,6 +165,9 @@ d3.tsv("data.tsv", function(error, data) {
   data.forEach(function(d) {
 	d.date = timeConverter(d.date);
     d.date = parseDate(d.date);
+	if(d.level < 0) {
+		d.level = 0;
+	}
     d.level = +d.level;
   });
 
