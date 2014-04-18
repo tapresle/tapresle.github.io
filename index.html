@@ -174,7 +174,7 @@ var svg = d3.select("body").append("svg")
     .attr("fill", "white");
 
 svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left+ 30 + "," + margin.top + ")");
 
 	
 d3.tsv("data.tsv", function(error, data) {
