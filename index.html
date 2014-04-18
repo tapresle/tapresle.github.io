@@ -131,19 +131,17 @@
 		
 		//Start Line chart
 		
-		var margin = {top: 20, right: 80, bottom: 30, left: 50},
+		var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var parseDate = d3.time.format("%d-%m-%Y").parse;
+var parseDate = d3.time.format("%d-%b-%y").parse;
 
 var x = d3.time.scale()
     .range([0, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
-
-var color = d3.scale.category10();
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -154,9 +152,8 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 var line = d3.svg.line()
-    .interpolate("basis")
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.temperature); });
+    .y(function(d) { return y(d.level); });
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -165,28 +162,14 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.tsv("data.tsv", function(error, data) {
-  color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
-
   data.forEach(function(d) {
-	d.date =  timeConverter(d.date);
+	d.date = timeConverter(d.date);
     d.date = parseDate(d.date);
-  });
-
-  var totals = color.domain().map(function(name) {
-    return {
-      name: name,
-      values: data.map(function(d) {
-        return {date: d.date, level: +d[name]};
-      })
-    };
+    d.level = +d.level;
   });
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
-
-  y.domain([
-    d3.min(totals, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
-    d3.max(totals, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
-  ]);
+  y.domain(d3.extent(data, function(d) { return d.level; }));
 
   svg.append("g")
       .attr("class", "x axis")
@@ -201,24 +184,12 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Level");
+      .text("Price ($)");
 
-  var city = svg.selectAll(".city")
-      .data(cities)
-    .enter().append("g")
-      .attr("class", "city");
-
-  city.append("path")
+  svg.append("path")
+      .datum(data)
       .attr("class", "line")
-      .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { return color(d.name); });
-
-  city.append("text")
-      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
-      .attr("x", 3)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name; });
+      .attr("d", line);
 });
 		
 	</script></div>
