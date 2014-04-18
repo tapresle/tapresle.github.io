@@ -140,12 +140,12 @@
 var parseDate = d3.time.format("%d-%b-%Y").parse;
 
 var x = d3.time.scale()
-    .range([0, width-20]);
+    .range([0, width-30]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var color = d3.scale.category20c();
+var color = d3.scale.category20b();
 	
 var xAxis = d3.svg.axis()
     .scale(x)
