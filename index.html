@@ -166,8 +166,14 @@ var line = d3.svg.line()
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .attr("height", height + margin.top + margin.bottom);
+
+	svg.append("rect")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("fill", "white");
+
+svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	
