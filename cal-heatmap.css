@@ -14,7 +14,7 @@ html {
 
 }
 
-#line {
+#linegraph {
 	background-color: white;
 }
 
@@ -179,13 +179,7 @@ text.now
     border-width: 6px 6px 0;
     border-top-color: black;
 }
-.y_2014.m_1 .domain-background {
-	fill: transparent;
-}
-.y_2013.m_12 .domain-background {
-	fill: transparent;
-}
-.y_2014.m_2 .domain-background {
+.domain-background {
 	fill: transparent;
 }
 
