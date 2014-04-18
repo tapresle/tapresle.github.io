@@ -164,7 +164,8 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.tsv("data.tsv", function(error, data) {
-  data.forEach(function(d) {
+	color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+	data.forEach(function(d) {
 	//d.date = timeConverter(d.date);
     d.date = parseDate(d.date);
     //d.level = +d.level;
@@ -201,7 +202,7 @@ d3.tsv("data.tsv", function(error, data) {
       .style("text-anchor", "end")
       .text("Severity");
 
-  var total = svg.selectAll(".toal")
+  var total = svg.selectAll(".total")
       .data(levels)
     .enter().append("g")
       .attr("class", "total");
