@@ -161,7 +161,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data.tsv", function(error, data) {
+d3.tsv("pain.tsv", function(error, data) {
   data.forEach(function(d) {
 	d.date = timeConverter(d.date);
     d.date = parseDate(d.date);
@@ -187,7 +187,7 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Price ($)");
+      .text("Severity");
 
   svg.append("path")
       .datum(data)
