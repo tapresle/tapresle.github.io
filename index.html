@@ -116,7 +116,12 @@
 			calendar.update("brainfog.json", false, calendar.RESET_ALL_ON_UPDATE);
 		}
 	</script>
-	
+	<br />
+	<br />
+	<br />
+	<div id="graphback">
+	<h1>All data below is not representative of real data. For demo only</h1>
+	<h2>This graph displays all current data together</h2>
 	<div id="linegraph">
 	<script type="text/javascript">
 		/* function to convert from UNIX epoch to date
@@ -145,7 +150,7 @@ var x = d3.time.scale()
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var color = d3.scale.category20();
+var color = d3.scale.category10();
 	
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -227,6 +232,6 @@ d3.tsv("data.tsv", function(error, data) {
       .text(function(d) { return d.name; });
 });
 		
-	</script></div>
+	</script></div></div>
  </body>
 </html>
