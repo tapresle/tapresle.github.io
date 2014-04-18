@@ -140,12 +140,12 @@
 var parseDate = d3.time.format("%d-%b-%Y").parse;
 
 var x = d3.time.scale()
-    .range([0, width]);
+    .range([0, width+20]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var color = d3.scale.category10();
+var color = d3.scale.category20c();
 	
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -165,10 +165,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg.append("rect")
+/* svg.append("rect")
     .attr("width", "110%")
     .attr("height", "110%")
-    .attr("fill", "white");
+    .attr("fill", "white"); */
 	
 d3.tsv("data.tsv", function(error, data) {
 	color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
