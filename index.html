@@ -145,7 +145,7 @@
 var parseDate = d3.time.format("%d-%b-%Y").parse;
 
 var x = d3.time.scale()
-    .range([0, width]);
+    .range([0, width-40]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -172,7 +172,7 @@ var svg = d3.select("body").append("svg")
 	
 	svg.append("rect")
     .attr("width", "100%")
-    .attr("height", "100%")
+    .attr("height", "90%")
     .attr("fill", "white");
 	
 
