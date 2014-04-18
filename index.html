@@ -163,11 +163,8 @@ var svg = d3.select("body").append("svg")
 
 d3.tsv("pain.tsv", function(error, data) {
   data.forEach(function(d) {
-	d.date = timeConverter(d.date);
+	//d.date = timeConverter(d.date);
     d.date = parseDate(d.date);
-	if(d.level < 0) {
-		d.level = 0;
-	}
     d.level = +d.level;
   });
 
