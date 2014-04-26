@@ -68,10 +68,7 @@
 				id : "graph_c",
 				domain: "month",
 				subDomain: "x_day",
-				subDomainTextFormat: "%d",
-				subDomainDateFormat: function(date) {
-					d3.time.format("%a");
-				}
+				subDomainTextFormat: "%a, %d",
 				domainGutter: 20,
 				cellSize:55,
 				label: {
