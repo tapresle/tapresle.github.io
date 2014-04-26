@@ -91,37 +91,37 @@ body {
 .q2
 {
 	background-color: #cedb9c;
-	fill: hsla(240, 100%, 100%, 1);
+	fill: hsla(360, 100%, 100%, 1);
 }
 
 .q3
 {
 	background-color: #999;
-	fill: hsla(240, 100%, 90%, 1);
+	fill: hsla(360, 100%, 90%, 1);
 }
 
 .q4
 {
 	background-color: #637939;
-	fill: hsla(240, 100%, 80%, 1);
+	fill: hsla(360, 100%, 80%, 1);
 }
 
 .q5
 {
 	background-color: #3b6427;
-	fill: hsla(240, 100%, 70%, 1);
+	fill: hsla(360, 100%, 70%, 1);
 }
 .q6
 {
 	background-color: #999;
 	
-	fill: hsla(240, 100%, 60%, 1);
+	fill: hsla(360, 100%, 60%, 1);
 }
 .q7
 {
 	background-color: #999;
 	
-	fill: hsla(240, 100%, 50%, 1);
+	fill: hsla(360, 100%, 50%, 1);
 }
 
 rect.highlight
