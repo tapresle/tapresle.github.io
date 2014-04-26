@@ -29,7 +29,7 @@
 	 <button type="button" id="fatigue" onClick="displayFatigue() && location.reload()">FATIGUE</button>
 	 <button type="button" id="mobility" onClick="displayMobility() && location.reload()">MOBILITY</button>
 	 <button type="button" id="brainfog" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
-	<div id="caltitle"></div>
+	<p id="caltitle"></p>
 	<div id="cal2"></div>
 	<script type="text/javascript">
 		
@@ -72,7 +72,7 @@
 				id : "graph_c",
 				domain: "month",
 				subDomain: "x_day",
-				subDomainTextFormat: "%a," + document.write('<br/>') + "%d",
+				subDomainTextFormat: "%a," + <br/> + "%d",
 				domainGutter: 20,
 				cellSize:55,
 				label: {
