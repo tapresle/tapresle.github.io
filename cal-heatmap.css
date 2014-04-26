@@ -197,6 +197,10 @@ text.now
   shape-rendering: crispEdges;
 }
 
+.axis text{
+	font-size: 12px;
+}
+
 .x.axis path {
   display: none;
 }
