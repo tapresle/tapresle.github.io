@@ -28,6 +28,7 @@
 	 <button type="button" onClick="displayFatigue() && location.reload()">FATIGUE</button>
 	 <button type="button" onClick="displayMobility() && location.reload()">MOBILITY</button>
 	 <button type="button" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
+	<div id="caltitle"></div>
 	<div id="cal2"></div>
 	<script type="text/javascript">
 		
@@ -88,22 +89,23 @@
 		function displayViz(sel){
 		
 			var value = sel.options[sel.selectedIndex].value;
+			var node = document.getElementById('caltitle');
 			
 			if(value == "PAIN")
 				displayPain();
-				document.write("Pain Selected");
+				node.innerHTML('<p>Pain Selected</p>');
 				
 			if(value == "FATIGUE")
 				displayFatigue();
-				document.write("Fatigue Selected");
+				node.innerHTML('<p>Fatigue Selected</p>');
 			
 			if(value == "MOBILITY")
 				displayMobility();
-				document.write("Mobility Selected");
+				node.innerHTML('<p>Mobility Selected</p>');
 				
 			if(value == "BRAINFOG")
 				displayBrainFog();
-				document.write("Brainfog Selected");
+				node.innerHTML('<p>Brainfog Selected</p>');
 				
 		
 		}
