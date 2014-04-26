@@ -24,10 +24,10 @@
 		<option value="MOBILITY">MOBILITY</option>
 		<option value="BRAINFOG">BRAINFOG</option>
      </select> -->
-	 <button type="button" onClick="displayPain() && location.reload()">PAIN</button>
-	 <button type="button" onClick="displayFatigue() && location.reload()">FATIGUE</button>
-	 <button type="button" onClick="displayMobility() && location.reload()">MOBILITY</button>
-	 <button type="button" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
+	 <button type="button" id="pain" onClick="displayPain() && location.reload()">PAIN</button>
+	 <button type="button" id="fatigue" onClick="displayFatigue() && location.reload()">FATIGUE</button>
+	 <button type="button" id="mobility" onClick="displayMobility() && location.reload()">MOBILITY</button>
+	 <button type="button" id="brainfog" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
 	<div id="caltitle"></div>
 	<div id="cal2"></div>
 	<script type="text/javascript">
@@ -81,32 +81,31 @@
 				weekStartOnMonday: false,
 				displayLegend: true,
 				legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
-				legendCellSize: 30,
-				tooltip: true
+				legendCellSize: 30
 			});
 		}
 		
 		function displayViz(sel){
 		
 			var value = sel.options[sel.selectedIndex].value;
-			var node = document.getElementById('caltitle');
-			node.innerHTML('<p>Pain Selected</p>');
+			var node = document.getElementById("caltitle");
+			node.innerHTML("<p>Pain Selected</p>");
 			
 			if(value == "PAIN")
 				displayPain();
-				node.innerHTML('<p>Pain Selected</p>');
+				node.innerHTML("<p>Pain Selected</p>");
 				
 			if(value == "FATIGUE")
 				displayFatigue();
-				node.innerHTML('<p>Fatigue Selected</p>');
+				node.innerHTML("<p>Fatigue Selected</p>");
 			
 			if(value == "MOBILITY")
 				displayMobility();
-				node.innerHTML('<p>Mobility Selected</p>');
+				node.innerHTML("<p>Mobility Selected</p>");
 				
 			if(value == "BRAINFOG")
 				displayBrainFog();
-				node.innerHTML('<p>Brainfog Selected</p>');
+				node.innerHTML("<p>Brainfog Selected</p>");
 				
 		
 		}
