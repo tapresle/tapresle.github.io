@@ -62,8 +62,8 @@ button {
 }
 
 .subdomain-text {
-	font-size: 14px;
-	fill: #C0C0C0;
+	font-size: 12px;
+	fill: #000000;
 	pointer-events: none
 }
 

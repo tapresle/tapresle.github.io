@@ -32,6 +32,22 @@
 	<p id="caltitle"></p>
 	<div id="cal2"></div>
 	<script type="text/javascript">
+	
+		$(document).ready(function(){
+					$("#pain").click(function(){
+						$('#caltitle').html('Pain Selected');
+					});
+					$("#fatigue").click(function(){
+						$('#caltitle').html('Fatigue Selected');
+					});
+					$("#mobility").click(function(){
+						$('#caltitle').html('Mobility Selected');
+					});
+					$("#brainfog").click(function(){
+						$('#caltitle').html('Brainfog Selected');
+					});
+				});
+	
 		
 		var text = document.getElementById("cal2");
 		// This checks for mobile
@@ -92,25 +108,16 @@
 			
 			if(value == "PAIN")
 				displayPain();
-				$(document).ready(function(){
-					$("#pain").click(function(){
-						$('#caltitle').html('Pain Selected');
-					});
-				});
 				
 			if(value == "FATIGUE")
 				displayFatigue();
-				node.innerHTML("<p>Fatigue Selected</p>");
 			
 			if(value == "MOBILITY")
 				displayMobility();
-				node.innerHTML("<p>Mobility Selected</p>");
 				
 			if(value == "BRAINFOG")
 				displayBrainFog();
-				node.innerHTML("<p>Brainfog Selected</p>");
 				
-		
 		}
 		
 		function displayPain(){
