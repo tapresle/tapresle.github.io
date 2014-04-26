@@ -39,3 +39,7 @@ instances of data per date.
 javascript from running, this could potentially be a problem that needs
 to be addressed in the HTML.
 
+add weekdays
+add selected symptom
+make a bigger legend
+
