@@ -30,9 +30,6 @@ button {
 	width: 10em;
 	height: 5em;
 }
-button:active {
-	border: 5px solid steelblue;
-}
 
 .cal-heatmap-container {
 	
