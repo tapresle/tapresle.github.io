@@ -66,19 +66,18 @@ body {
 .hover_cursor:hover {
 	cursor: pointer
 }
-/* These .qi through .q7 aren't needed unless
-   you take out legendColors from the calendar init
+
 .qi {
 	background-color: #999;
 	fill: #999
 }
 
 
-
+/*empty cells*/
 .q0
 {
 	background-color: #fff;
-	fill: #00FF00;
+	fill: #ededed;
 	stroke: #ededed
 }
 
@@ -92,39 +91,39 @@ body {
 .q2
 {
 	background-color: #cedb9c;
-	fill: #55FF00;
+	fill: hsla(240, 100%, 100%, 1);
 }
 
 .q3
 {
 	background-color: #999;
-	fill: #BBFF00;
+	fill: hsla(240, 100%, 90%, 1);
 }
 
 .q4
 {
 	background-color: #637939;
-	fill: #FFBB00;
+	fill: hsla(240, 100%, 80%, 1);
 }
 
 .q5
 {
 	background-color: #3b6427;
-	fill: #FF5500;
+	fill: hsla(240, 100%, 70%, 1);
 }
 .q6
 {
 	background-color: #999;
 	
-	fill: #FF2200;
+	fill: hsla(240, 100%, 60%, 1);
 }
 .q7
 {
 	background-color: #999;
 	
-	fill: #FF0000;
+	fill: hsla(240, 100%, 50%, 1);
 }
-*/
+
 rect.highlight
 {
 	stroke:#444;
