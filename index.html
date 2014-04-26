@@ -160,7 +160,7 @@
 		
 		var margin = {top: 20, right: 20, bottom: 30, left: 50},
 		width = 960 - margin.left - margin.right,
-		height = 550 - margin.top - margin.bottom;
+		height = 500 - margin.top - margin.bottom;
 
 		var parseDate = d3.time.format("%d-%b-%Y").parse;
 
@@ -227,7 +227,7 @@
 
 			svg.append("g")
 				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height+ 5 + ")")
+				.attr("transform", "translate(0," + height + ")")
 				.call(xAxis);
 
 			svg.append("g")
@@ -236,7 +236,7 @@
 				.append("text")
 				.attr("transform", "rotate(-90)")
 				.attr("y", 6)
-				.attr("dy", ".71em")
+				.attr("dy", "2em")
 				.style("text-anchor", "end")
 				.text("Severity");
 
@@ -254,12 +254,10 @@
 				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
 				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
 				.attr("x", 3)
-				.attr("dy", ".71em")
+				.attr("dy", "2em")
 				.text(function(d) { return d.name; });
 		});
 		
 	</script></div></div>
-	<br/>
-	<br/>
  </body>
 </html>
