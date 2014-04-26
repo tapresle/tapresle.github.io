@@ -26,6 +26,10 @@ p {
 body {
   font: 10px sans-serif;
 }
+button {
+	width: 20em;
+	height: 2em;
+}
 
 .cal-heatmap-container {
 	
