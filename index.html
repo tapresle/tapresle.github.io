@@ -45,7 +45,7 @@
 			id : "graph_c",
 			domain: "month",
 			subDomain: "x_day",
-			subDomainTextFormat: "%d",
+			subDomainTextFormat: "%a, %d",
 			domainGutter: 20,
 			cellSize:55,
 			label: {
@@ -55,6 +55,9 @@
 			weekStartOnMonday: false,
 			displayLegend: true,
 			legend: [-1,0,1, 2, 3,4] 	// Custom threshold for the scale
+			legendCellSize: 40
+			legendColors: ["#00FF00","#FF0000"]
+			tooltip: true
 		});
 		}
 		else {
