@@ -46,8 +46,9 @@
 			domain: "month",
 			subDomain: "x_day",
 			subDomainTextFormat: "%a, %d",
-			domainGutter: 30,
+			domainGutter: 20,
 			cellSize:75,
+			cellPadding: 3,
 			label: {
 				position: "top"
 			} ,
@@ -78,7 +79,7 @@
 				itemName: ["level", "level"],
 				weekStartOnMonday: false,
 				displayLegend: true,
-				legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
+				legend: [0,1, 2, 3,4], 	// Custom threshold for the scale
 				legendCellSize: 30
 			});
 		}
