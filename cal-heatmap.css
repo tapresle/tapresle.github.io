@@ -201,10 +201,6 @@ text.now
 	font-size: 18px;
 }
 
-.x.axis path {
-  display: none;
-}
-
 .line {
   fill: none;
   stroke: steelblue;
