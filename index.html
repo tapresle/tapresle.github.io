@@ -5,12 +5,6 @@
     <script src="d3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="cal-heatmap.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript">
-		function clearBox(elementID)
-		{
-			document.getElementById(elementID).innerHTML = "";
-		}
-	</script>
 	<link href="cal-heatmap.css" rel="stylesheet">
    
  </head>
@@ -142,11 +136,11 @@
 	<div id="graphback">
 	<h1>All data below is not representative of real data. For demo only</h1>
 	<h2>This graph displays all current data together</h2>
-	<button type="button" id="painline" onClick="addPainLine()">PAIN</button>
-	<button type="button" id="fatigueline" onClick="addFatigueLine()">FATIGUE</button>
-	<button type="button" id="mobilityline" onClick="addMobilityLine()">MOBILITY</button>
-	<button type="button" id="brainfogline" onClick="addBrainfogLine()">BRAINFOG</button>
-	<button type="button" id="brainfogline" onClick="removeAllLines()">REMOVE ALL</button>
+	<button type="button" id="painline" onClick="addPainLine() && location.reload()">PAIN</button>
+	<button type="button" id="fatigueline" onClick="addFatigueLine() && location.reload()">FATIGUE</button>
+	<button type="button" id="mobilityline" onClick="addMobilityLine() && location.reload()">MOBILITY</button>
+	<button type="button" id="brainfogline" onClick="addBrainfogLine() && location.reload()">BRAINFOG</button>
+	<button type="button" id="brainfogline" onClick="removeAllLines() && location.reload()">REMOVE ALL</button>
 	<div id="linegraph">
 	<script type="text/javascript">
 		/* function to convert from UNIX epoch to date
@@ -271,6 +265,7 @@
 		}
 		
 		function addPainLine() {
+			var parseDate = d3.time.format("%d-%b-%Y").parse;
 			var line = d3.svg.line()
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.level); });
@@ -312,6 +307,7 @@
 		}
 		
 		function addFatigueLine() {
+			var parseDate = d3.time.format("%d-%b-%Y").parse;
 			var line = d3.svg.line()
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.level); });
@@ -353,6 +349,7 @@
 		}
 		
 		function addMobilityLine() {
+			var parseDate = d3.time.format("%d-%b-%Y").parse;
 			var line = d3.svg.line()
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.level); });
@@ -394,6 +391,7 @@
 		}
 		
 		function addBrainfogLine() {
+			var parseDate = d3.time.format("%d-%b-%Y").parse;
 			var line = d3.svg.line()
 			.x(function(d) { return x(d.date); })
 			.y(function(d) { return y(d.level); });
