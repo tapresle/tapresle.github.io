@@ -298,6 +298,16 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
+			
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
 		});
 		}
 		
@@ -329,6 +339,16 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
+			
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
 		});
 		}
 		
@@ -360,6 +380,16 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
+			
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
 		});
 		}
 		
@@ -391,6 +421,16 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
+			
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
 		});
 		}
 		
