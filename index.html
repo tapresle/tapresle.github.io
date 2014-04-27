@@ -146,7 +146,7 @@
 	<button type="button" id="fatigueline" onClick="addFatigueLine()">FATIGUE</button>
 	<button type="button" id="mobilityline" onClick="addMobilityLine()">MOBILITY</button>
 	<button type="button" id="brainfogline" onClick="addBrainfogLine()">BRAINFOG</button>
-	<button type="button" id="brainfogline" onClick="removeAllLines()">REMOVE ALL LINES</button>
+	<button type="button" id="brainfogline" onClick="removeAllLines()">REMOVE ALL</button>
 	<div id="linegraph">
 	<script type="text/javascript">
 		/* function to convert from UNIX epoch to date
@@ -294,38 +294,6 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
-
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
-				.call(yAxis)
-				.append("text")
-				.attr("transform", "rotate(-90)")
-				.attr("y", 6)
-				.attr("dy", "2em")
-				.style("text-anchor", "end")
-				.text("Severity");
-
-			var total = svg.selectAll(".total")
-				.data(levels)
-				.enter().append("g")
-				.attr("class", "total");
-
-			total.append("path")
-				.attr("class", "line")
-				.attr("d", function(d) { return line(d.values); })
-				.style("stroke", function(d) { return color(d.name); });
-	
-			total.append("text")
-				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
-				.attr("x", 3)
-				.attr("dy", ".71em")
-				.text(function(d) { return d.name; });
 		});
 		}
 		
@@ -353,38 +321,6 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
-
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
-				.call(yAxis)
-				.append("text")
-				.attr("transform", "rotate(-90)")
-				.attr("y", 6)
-				.attr("dy", "2em")
-				.style("text-anchor", "end")
-				.text("Severity");
-
-			var total = svg.selectAll(".total")
-				.data(levels)
-				.enter().append("g")
-				.attr("class", "total");
-
-			total.append("path")
-				.attr("class", "line")
-				.attr("d", function(d) { return line(d.values); })
-				.style("stroke", function(d) { return color(d.name); });
-	
-			total.append("text")
-				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
-				.attr("x", 3)
-				.attr("dy", ".71em")
-				.text(function(d) { return d.name; });
 		});
 		}
 		
@@ -412,38 +348,6 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
-
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
-				.call(yAxis)
-				.append("text")
-				.attr("transform", "rotate(-90)")
-				.attr("y", 6)
-				.attr("dy", "2em")
-				.style("text-anchor", "end")
-				.text("Severity");
-
-			var total = svg.selectAll(".total")
-				.data(levels)
-				.enter().append("g")
-				.attr("class", "total");
-
-			total.append("path")
-				.attr("class", "line")
-				.attr("d", function(d) { return line(d.values); })
-				.style("stroke", function(d) { return color(d.name); });
-	
-			total.append("text")
-				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
-				.attr("x", 3)
-				.attr("dy", ".71em")
-				.text(function(d) { return d.name; });
 		});
 		}
 		
@@ -471,38 +375,6 @@
 				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
 				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
 			]);
-
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
-				.call(yAxis)
-				.append("text")
-				.attr("transform", "rotate(-90)")
-				.attr("y", 6)
-				.attr("dy", "2em")
-				.style("text-anchor", "end")
-				.text("Severity");
-
-			var total = svg.selectAll(".total")
-				.data(levels)
-				.enter().append("g")
-				.attr("class", "total");
-
-			total.append("path")
-				.attr("class", "line")
-				.attr("d", function(d) { return line(d.values); })
-				.style("stroke", function(d) { return color(d.name); });
-	
-			total.append("text")
-				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
-				.attr("x", 3)
-				.attr("dy", ".71em")
-				.text(function(d) { return d.name; });
 		});
 		}
 		
