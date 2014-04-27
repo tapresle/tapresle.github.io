@@ -142,6 +142,11 @@
 	<div id="graphback">
 	<h1>All data below is not representative of real data. For demo only</h1>
 	<h2>This graph displays all current data together</h2>
+	<button type="button" id="painline" onClick="addPainLine()">PAIN</button>
+	<button type="button" id="fatigueline" onClick="addFatigueLine()">FATIGUE</button>
+	<button type="button" id="mobilityline" onClick="addMobilityLine()">MOBILITY</button>
+	<button type="button" id="brainfogline" onClick="addBrainfogLine()">BRAINFOG</button>
+	<button type="button" id="brainfogline" onClick="removeAllLines()">REMOVE ALL LINES</button>
 	<div id="linegraph">
 	<script type="text/javascript">
 		/* function to convert from UNIX epoch to date
@@ -202,6 +207,71 @@
 
 	
 		d3.tsv("data.tsv", function(error, data) {
+			color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
+			data.forEach(function(d) {
+			//d.date = timeConverter(d.date);
+			d.date = parseDate(d.date);
+			//d.level = +d.level;
+			});
+
+			var levels = color.domain().map(function(name) {
+				return {
+				name: name,
+				values: data.map(function(d) {
+					return {date: d.date, level: +d[name]};
+				})
+				};
+			});
+
+			x.domain(d3.extent(data, function(d) { return d.date; }));
+
+			y.domain([
+				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
+				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
+			]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", "2em")
+				.style("text-anchor", "end")
+				.text("Severity");
+
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
+	
+			total.append("text")
+				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
+				.attr("x", 3)
+				.attr("dy", ".71em")
+				.text(function(d) { return d.name; });
+		});
+		
+		
+		//Buttons to change lines
+			
+		function removeAllLines() {
+			d3.selectAll("path.line").remove();
+		}
+		
+		function addPainLine() {
+			d3.tsv("data.tsv", function(error, data) {
 			color.domain(d3.keys(data[0]).filter(function(key) { return key == "pain"; }));
 			data.forEach(function(d) {
 			//d.date = timeConverter(d.date);
@@ -257,6 +327,184 @@
 				.attr("dy", ".71em")
 				.text(function(d) { return d.name; });
 		});
+		}
+		
+		function addFatigueLine() {
+			d3.tsv("data.tsv", function(error, data) {
+			color.domain(d3.keys(data[0]).filter(function(key) { return key == "fatigue"; }));
+			data.forEach(function(d) {
+			//d.date = timeConverter(d.date);
+			d.date = parseDate(d.date);
+			//d.level = +d.level;
+			});
+
+			var levels = color.domain().map(function(name) {
+				return {
+				name: name,
+				values: data.map(function(d) {
+					return {date: d.date, level: +d[name]};
+				})
+				};
+			});
+
+			x.domain(d3.extent(data, function(d) { return d.date; }));
+
+			y.domain([
+				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
+				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
+			]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", "2em")
+				.style("text-anchor", "end")
+				.text("Severity");
+
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
+	
+			total.append("text")
+				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
+				.attr("x", 3)
+				.attr("dy", ".71em")
+				.text(function(d) { return d.name; });
+		});
+		}
+		
+		function addMobilityLine() {
+			d3.tsv("data.tsv", function(error, data) {
+			color.domain(d3.keys(data[0]).filter(function(key) { return key == "mobility"; }));
+			data.forEach(function(d) {
+			//d.date = timeConverter(d.date);
+			d.date = parseDate(d.date);
+			//d.level = +d.level;
+			});
+
+			var levels = color.domain().map(function(name) {
+				return {
+				name: name,
+				values: data.map(function(d) {
+					return {date: d.date, level: +d[name]};
+				})
+				};
+			});
+
+			x.domain(d3.extent(data, function(d) { return d.date; }));
+
+			y.domain([
+				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
+				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
+			]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", "2em")
+				.style("text-anchor", "end")
+				.text("Severity");
+
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
+	
+			total.append("text")
+				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
+				.attr("x", 3)
+				.attr("dy", ".71em")
+				.text(function(d) { return d.name; });
+		});
+		}
+		
+		function addBrainfogLine() {
+			d3.tsv("data.tsv", function(error, data) {
+			color.domain(d3.keys(data[0]).filter(function(key) { return key == "brainfog"; }));
+			data.forEach(function(d) {
+			//d.date = timeConverter(d.date);
+			d.date = parseDate(d.date);
+			//d.level = +d.level;
+			});
+
+			var levels = color.domain().map(function(name) {
+				return {
+				name: name,
+				values: data.map(function(d) {
+					return {date: d.date, level: +d[name]};
+				})
+				};
+			});
+
+			x.domain(d3.extent(data, function(d) { return d.date; }));
+
+			y.domain([
+				d3.min(levels, function(c) { return d3.min(c.values, function(v) { return v.level; }); }),
+				d3.max(levels, function(c) { return d3.max(c.values, function(v) { return v.level; }); })
+			]);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", "2em")
+				.style("text-anchor", "end")
+				.text("Severity");
+
+			var total = svg.selectAll(".total")
+				.data(levels)
+				.enter().append("g")
+				.attr("class", "total");
+
+			total.append("path")
+				.attr("class", "line")
+				.attr("d", function(d) { return line(d.values); })
+				.style("stroke", function(d) { return color(d.name); });
+	
+			total.append("text")
+				.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+				.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.level) + ")"; })
+				.attr("x", 3)
+				.attr("dy", ".71em")
+				.text(function(d) { return d.name; });
+		});
+		}
 		
 	</script></div></div>
  </body>
