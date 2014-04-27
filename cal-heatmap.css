@@ -11,24 +11,80 @@ html {
 }
 #title {
 	text-align: center;
-
-}
-
-#graphback {
-	
 }
 
 p {
 	font-family: sans-serif;
+	font-size:1.5em;
+	color: #000000;
+}
+
+#select {
+	font-family: sans-serif;
 	font-size:2em;
 	color: #000000;
 }
+
 body {
   font: 10px sans-serif;
 }
+
 button {
 	width: 10em;
 	height: 5em;
+}
+
+#legend {
+	
+}
+
+#empty {
+	width: 5em;
+	height: 5em;
+	background-color: #ededed;
+	display: inline-block;
+}
+
+#zero {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 100%, 1);
+	display: inline-block;
+}
+
+#one {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 90%, 1);
+	display: inline-block;
+}
+
+#two {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 80%, 1);
+	display: inline-block;
+}
+
+#three {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 70%, 1);
+	display: inline-block;
+}
+
+#four {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 60%, 1);
+	display: inline-block;
+}
+
+#five {
+	width: 5em;
+	height: 5em;
+	background-color: hsla(360, 100%, 50%, 1);
+	display: inline-block;
 }
 
 .cal-heatmap-container {

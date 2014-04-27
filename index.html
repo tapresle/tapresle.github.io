@@ -1,17 +1,18 @@
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-   <title>My project</title>
+   <title>Bamboo Mobile Health Viz</title>
     <script src="d3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="cal-heatmap.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<link href="cal-heatmap.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
    
  </head>
  <body>
 	
 	<div id="title"><a href="http://www.bamboomobilehealth.com" target="_blank"><img src="title.PNG"></a></div>
-	<p>SELECT SYMPTOM</p>
+	<p id="select">SELECT SYMPTOM</p>
 	<!-- This is old code, may be useful if more symptoms get added
 	<select onChange="displayViz(this) && location.reload()">
 		<option value="PAIN">PAIN</option>
@@ -66,7 +67,7 @@
 			} ,
 			itemName: ["level", "level"],
 			weekStartOnMonday: false,
-			displayLegend: true,
+			displayLegend: false,
 			legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
 			legendCellSize: 30
 		});
@@ -90,7 +91,7 @@
 				} ,
 				itemName: ["level", "level"],
 				weekStartOnMonday: false,
-				displayLegend: true,
+				displayLegend: false,
 				legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
 				legendCellSize: 30
 			});
@@ -130,6 +131,15 @@
 			calendar.update("brainfog.json", false, calendar.RESET_ALL_ON_UPDATE);
 		}
 	</script>
+	<div id="legend"><p>Severity Level Legend</p> <br/>
+	<div id="empty"><p>No data</p></div>
+	<div id="zero"><p>0</p></div>
+	<div id="one"><p>1</p></div>
+	<div id="two"><p>2</p></div>
+	<div id="three"><p>3</p></div>
+	<div id="four"><p>4</p></div>
+	<div id="five"><p>5</p></div>
+	</div>
 	<br />
 	<br />
 	<br />
