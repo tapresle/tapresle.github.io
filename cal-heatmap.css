@@ -23,7 +23,7 @@ html {
 p {
 	font-family: sans-serif;
 	font-size:1.25em;
-	color: #000000;
+	
 }
 
 #select {
@@ -55,43 +55,47 @@ button {
 #zero {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 100%, 1);
+	background-color: #66FF66;
 	display: inline-block;
 }
 
 #one {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 90%, 1);
+	background-color: #56A0D3;
 	display: inline-block;
 }
 
 #two {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 80%, 1);
+	background-color: #001A57;
 	display: inline-block;
+    color: white;
 }
 
 #three {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 70%, 1);
+	background-color: #990099;
 	display: inline-block;
+    color: white;
 }
 
 #four {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 60%, 1);
+	background-color: #FFA500;
 	display: inline-block;
+    color: white;
 }
 
 #five {
 	width: 5em;
 	height: 5em;
-	background-color: hsla(360, 100%, 50%, 1);
+	background-color: #CC0000;
 	display: inline-block;
+    color: white;
 }
 
 .cal-heatmap-container {
@@ -158,37 +162,41 @@ button {
 .q2
 {
 	background-color: #cedb9c;
-	fill: hsla(360, 100%, 100%, 1);
+	fill: #66FF66;
 }
 
 .q3
 {
 	background-color: #999;
-	fill: hsla(360, 100%, 90%, 1);
+	fill: #56A0D3;
 }
 
 .q4
 {
 	background-color: #637939;
-	fill: hsla(360, 100%, 80%, 1);
+	fill: #001A57;
+    color: white;
 }
 
 .q5
 {
 	background-color: #3b6427;
-	fill: hsla(360, 100%, 70%, 1);
+	fill: #990099;
+    color: white;
 }
 .q6
 {
 	background-color: #999;
 	
-	fill: hsla(360, 100%, 60%, 1);
+	fill: #FFA500;
+    color: white;
 }
 .q7
 {
 	background-color: #999;
 	
-	fill: hsla(360, 100%, 50%, 1);
+	fill: #CC0000;
+    color: white;
 }
 
 rect.highlight
