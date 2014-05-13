@@ -237,7 +237,7 @@ text.now
 	font-size: 12px;
 	line-height: 1.4;
 	width: 140px;
-	position: relative;
+	position: absolute;
 	z-index: 99999;
 	text-align: center;
 	border-radius: 2px;
@@ -247,7 +247,7 @@ text.now
 }
 
 .ch-tooltip::after{
-	position: relative;
+	position: absolute;
 	width: 0;
 	height: 0;
 	border-color: transparent;
