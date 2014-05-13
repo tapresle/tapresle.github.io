@@ -2,7 +2,7 @@
 
 
 html { 
-  	background: url(img.png) no-repeat center center fixed; 
+  	background-color: #999999; 
 	 -webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
