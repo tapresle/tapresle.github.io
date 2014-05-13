@@ -246,7 +246,7 @@ text.now
 	position: absolute;
 	width: 0;
 	height: 0;
-	border-color: black;
+	border-color: transparent;
 	border-style: solid;
 	content: "";
 	padding: 0;
