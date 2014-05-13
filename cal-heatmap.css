@@ -2,7 +2,7 @@
 
 
 html { 
-  	background-color: #999999; 
+  	background-color: #000060; 
 	 -webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
@@ -21,7 +21,7 @@ html {
 #caltitle {
 	font-family: sans-serif;
 	font-size:2em;
-	color: #000000;
+	color: #FFFFFF;
 }
 
 p {
@@ -33,7 +33,7 @@ p {
 #select {
 	font-family: sans-serif;
 	font-size:2em;
-	color: #000000;
+	color: #FFFFFF;
 }
 
 body {
@@ -46,7 +46,7 @@ button {
 }
 
 #legend {
-	
+	color: #FFFFFF;
 }
 
 #empty {
@@ -54,6 +54,7 @@ button {
 	height: 5em;
 	background-color: #ededed;
 	display: inline-block;
+    color: black;
 }
 
 #zero {
@@ -61,6 +62,7 @@ button {
 	height: 5em;
 	background-color: #98FB98;
 	display: inline-block;
+    color: black;
 }
 
 #one {
@@ -68,6 +70,7 @@ button {
 	height: 5em;
 	background-color: #ADD8E6;
 	display: inline-block;
+    color: black;
 }
 
 #two {
@@ -113,7 +116,7 @@ button {
 
 .graph-label
 {
-	fill: #000000;
+	fill: #FFFFFF;
 	font-size: 20px
 }
 
