@@ -66,14 +66,14 @@ button {
 #one {
 	width: 5em;
 	height: 5em;
-	background-color: #56A0D3;
+	background-color: #ADD8E6;
 	display: inline-block;
 }
 
 #two {
 	width: 5em;
 	height: 5em;
-	background-color: #001A57;
+	background-color: #56A0D3;
 	display: inline-block;
     color: white;
 }
@@ -172,13 +172,13 @@ button {
 .q3
 {
 	background-color: #999;
-	fill: #56A0D3;
+	fill: #ADD8E6;
 }
 
 .q4
 {
 	background-color: #637939;
-	fill: #001A57;
+	fill: #56A0D3;
     color: white;
 }
 
