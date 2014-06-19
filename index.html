@@ -1,5 +1,239 @@
-<html>
-<body>
-<h1>Page being built</h1>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ted Presley's Resume</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      
+    <!-- Page custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+        <!-- Begin Navbar -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <p class="navbar-brand">Ted Presley</p>
+            </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#edu">Education</a></li>
+                <li><a href="#we">Work Experience</a></li>
+                <li><a href="#ts">Technical Skills</a></li>
+                <li><a href="#cw">Coursework</a></li>
+                <li><a href="#projects">Projects</a></li>
+              </ul>
+            </div>
+            </div>
+            </nav>
+        <!-- End Navbar -->
+      
+        <!-- Begin Personal Header -->
+        <div class="container">
+        <!-- Personal Header -->
+        <div class="jumbotron">
+          <div class="container">
+          <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                  <img src="./images/TedPresley.jpg" alt="...">
+                </a>
+              </div>
+              <h1>Ted Presley</h1>
+              <p>Senior at North Carolina State University studying Computer Science</p>
+              </div>
+              <button type="button" id="contact" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="<address>
+      <strong>Ted Presley</strong><br>
+      778 Main Street<br>
+      Lillington, NC 27546<br>
+      Phone: (336) 816-2053<br>
+      <a href=mailto:tapresle@ncsu.edu>tapresle@ncsu.edu</a>
+    </address>">
+      Contact Me
+              </button>
+        </div>
+        </div>
+        <!-- End Personal Header -->
+        
+        <!-- Begin Education -->
+        <div id="edu" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Education</h3>
+          </div>
+          <div class="panel-body">
+            <p><strong>North Carolina State University, </strong>Raleigh, NC <br>
+            B.S. Computer Science, December 2014<br>
+            GPA: 3.01<br>
+            Dean's List</p>
+          </div>
+        </div>
+        <!-- End Education -->
+            
+        <!-- Begin Work Experience -->
+        <div id="we" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Work Experience</h3>
+          </div>
+          <div class="panel-body">
+            <p>
+                <h4>Product Manager at Bamboo Mobile Health</h4>
+                June 2014 - Present | Raleigh, NC
+                <p id="details">Responsibilities include taking help desk calls from patients, help with onboarding patients, provide support related to company software to patients.</p> 
+            </p>
+            <br>
+            <p>
+                <h4>Software Developer at Bamboo Mobile Health</h4>
+                April 2014 - Present | Raleigh, NC
+                <p id="details">Research web solutions. Help integrate team's work into current system. Develop landing page for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS.</p> 
+            </p>
+          </div>
+        </div>
+        <!-- End Work Experience -->
+    
+        <!-- Begin Technical Skills -->
+        <div id="ts" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Technical Skills</h3>
+          </div>
+          <div class="panel-body">
+            <div id="skill" class="row">
+                <div class="col-md-5">
+                    <ul class="list-group"><strong>Languages:</strong>
+                      <li class="list-group-item">Java</li>
+                      <li class="list-group-item">Android</li>
+                      <li class="list-group-item">C/C++</li>
+                      <li class="list-group-item">C#</li>
+                      <li class="list-group-item">HTML5</li>
+                      <li class="list-group-item">CSS3</li>
+                      <li class="list-group-item">Bootstrap</li>
+                      <li class="list-group-item">Javascript</li>
+                      <li class="list-group-item">JQuery</li>
+                      <li class="list-group-item">D3js</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <ul class="list-group"><strong>Software:</strong>
+                      <li class="list-group-item">Microsoft Office Suite</li>
+                      <li class="list-group-item">Eclipse</li>
+                      <li class="list-group-item">Github</li>
+                      <li class="list-group-item">LaTeX</li>
+                      <li class="list-group-item">Unity</li>
+                      <li class="list-group-item">GameMaker:Studio</li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- End Technical Skills -->
+    
+        <!-- Begin Coursework -->
+        <div id="cw" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Coursework</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">Intro to Computing – Java</li>
+                <li class="list-group-item">Programming Concepts – Java</li>
+                <li class="list-group-item">C/Software Tools</li>
+                <li class="list-group-item">Computer Organization and Assembly</li>
+                <li class="list-group-item">Operating Systems</li>
+                <li class="list-group-item">Data Structures and Algorithms</li>
+                <li class="list-group-item">Software Engineering</li>
+                <li class="list-group-item">Automata, Grammars, and Computability</li>
+                <li class="list-group-item">Computer Networks</li>
+                <li class="list-group-item">Introduction to Artificial Intelligence</li>
+                <li class="list-group-item">Applied Web Computing</li>
+                <li class="list-group-item">Entrepreneurial Innovation</li>
+            </ul>
+          </div>
+        </div>
+        <!-- End Coursework -->
+        
+        <!-- Begin Project Collapsibles -->
+        <div id="projects" class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Projects</h3>
+          </div>
+              <div class="panel-body">
+                <div class="panel-group" id="accordion">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Creating a data visualization dashboard
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <p>As the team leader, I had to communicate with my team's sponsor and gather the requirements for the web app that he wanted developed. The objective of the project was to make a dashboard that someone could go to and log into to see the severity of their symptoms for MS. In this project, we used HTML5, CSS3, Javascript, JQuery, and D3js to complete the dashboard. Due to time constraints, we did not get the add in the Google log in functionality, but we did get a functional visualization with static json data.</p>
+                          <p>A link to the demo of the project is located <a href="dataviz/index.html">here.</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                          iTrust
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          As team leader, I organized timelines and kept the team on track until completion of the project. Worked in Java, mySQL, and JSP pages on an Apache tomcat server. Worked with a Jenkins build server. Implemented key components such as enhancing password security and integrating quality of life changes in the display of health metrics. My team completed all enhancements assigned, plus an extra we were approved to add on. The team followed an agile software development process with 7 day sprints and had a major meeting each week to turn in and discuss the enchancements we implemented that week. Our team ended the project with a score of 100 out of 100 points.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Project Collapsibles -->
+        
+    </div>
+      <!-- Begin Footer -->
+      <div id="footer">
+          <div class="container">
+            <p class="ftext">Powered by <a href="http://getbootstrap.com">Bootstrap</a>
+            Background provided by <a href="http://qrohlf.com/trianglify/">http://qrohlf.com/trianglify/</a></p>
+          </div>
+      </div>
+      <!-- End Footer -->
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Calls to initialize tooltip and popovers -->
+    <script>$('#contact').tooltip();</script>
+    <script>$('#contact').popover();</script>
+    <!-- This closes the navbar when on mobile after clicking an item -->
+    <script>$(document).ready(function () {
+        $(".navbar-nav li a").click(function(event) {
+        $(".navbar-collapse").collapse('hide');
+        });
+        });
+      </script>
+  </body>
 </html>

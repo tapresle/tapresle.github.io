@@ -1,0 +1,141 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+   <title>Data Viz</title>
+    
+    <script src="d3.min.js" charset="utf-8"></script>
+    
+    <script type="text/javascript" src="cal-heatmap.min.js"></script>
+   
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+	<link href="cal-heatmap.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
+   
+ </head>
+ <body>
+	
+	
+	<p id="select">SELECT SYMPTOM</p>
+	 <button type="button" id="pain" onClick="displayPain() && location.reload()">PAIN</button>
+	 <button type="button" id="fatigue" onClick="displayFatigue() && location.reload()">FATIGUE</button>
+	 <button type="button" id="mobility" onClick="displayMobility() && location.reload()">MOBILITY</button>
+	 <button type="button" id="brainfog" onClick="displayBrainFog() && location.reload()">BRAINFOG</button>
+	<p id="caltitle"></p>
+	<div id="cal2"></div>
+	<script type="text/javascript">
+	
+		$(document).ready(function(){
+					$("#pain").click(function(){
+						$('#caltitle').html('Pain Selected');
+					});
+					$("#fatigue").click(function(){
+						$('#caltitle').html('Fatigue Selected');
+					});
+					$("#mobility").click(function(){
+						$('#caltitle').html('Mobility Selected');
+					});
+					$("#brainfog").click(function(){
+						$('#caltitle').html('Brainfog Selected');
+					});
+				});
+	
+		
+		var text = document.getElementById("cal2");
+		// This checks for mobile
+		if( screen.width <= 500) {
+			var calendar = new CalHeatMap();
+			calendar.init({
+			verticalOrientation: true,
+			data: "",
+			dataType: "json",
+			itemSelector: "#cal2",
+			start: new Date(2013, 11),
+			range :3,
+			id : "graph_c",
+			domain: "month",
+			subDomain: "x_day",
+			subDomainTextFormat: "%a, %d",
+			domainGutter: 10,
+			cellSize:75,
+			cellPadding: 3,
+			label: {
+				position: "top"
+			} ,
+			itemName: ["level", "level"],
+			weekStartOnMonday: false,
+			displayLegend: false,
+			legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
+			legendCellSize: 30
+		});
+		}
+		else {
+			var calendar = new CalHeatMap();
+				calendar.init({
+				data: "",
+				dataType: "json",
+				itemSelector: "#cal2",
+				start: new Date(2013, 11),
+				range :3,
+				id : "graph_c",
+				domain: "month",
+				subDomain: "x_day",
+				subDomainTextFormat: "%a, %d",
+				domainGutter: 20,
+				cellSize:55,
+				label: {
+					position: "top"
+				} ,
+				itemName: ["level", "level"],
+				weekStartOnMonday: false,
+				displayLegend: false,
+				legend: [-1,0,1, 2, 3,4], 	// Custom threshold for the scale
+				legendCellSize: 30
+			});
+		}
+		
+		function displayViz(sel){
+		
+			var value = sel.options[sel.selectedIndex].value;
+			
+			if(value == "PAIN")
+				displayPain();
+				
+			if(value == "FATIGUE")
+				displayFatigue();
+			
+			if(value == "MOBILITY")
+				displayMobility();
+				
+			if(value == "BRAINFOG")
+				displayBrainFog();
+				
+		}
+		
+		function displayPain(){
+			calendar.update("samplejson1.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayFatigue(){
+			calendar.update("fatigue.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayMobility(){
+			calendar.update("mobility.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+		
+		function displayBrainFog(){
+			calendar.update("brainfog.json", false, calendar.RESET_ALL_ON_UPDATE);
+		}
+	</script>
+	<div id="legend"><p>Severity Level Legend</p> <br/>
+	<div id="empty"><p>No data</p></div>
+	<div id="zero"><p>0</p></div>
+	<div id="one"><p>1</p></div>
+	<div id="two"><p>2</p></div>
+	<div id="three"><p>3</p></div>
+	<div id="four"><p>4</p></div>
+	<div id="five"><p>5</p></div>
+	</div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+Bamboo Mobile Heath Data Visualization Team
+
+Changes:
+-Fixed the way the calendar heatmap updates. It now
+updates in place instead of creating a new calendar
+every time.
+
+-Created a starting color scheme, still receiving
+feedback and will continue to update as requested.
+-Legend at the bottom of the calendar will tell
+user what each color means when they hover the cursor
+over it.
+
+-Added line chart to give the user a look at the data
+over time. This chart currently uses made up data
+and is for demo purposes only. 
+
+-Line chart is currently reading data in TSV format
+but can be changed to accept JSON data format fairly easily.
+This was done because of the time frame of the current project
+and we did not have time to look through the data in JSON format
+for duplicate lines with the same date.
+
+-Changed the drop box of symptoms to buttons since there are only
+four symptoms currently. We left the code for the drop box
+in the HTML file so it can be switched over quickly if needed.
+
+-Entire website should display properly in desktop browsers and
+mobile browsers with the exception of the line chart. The line
+chart will still display but it may be small on smartphone browsers.
+
+Issues:
+-Current format of data makes it hard to check if there are multiple
+instances of data per date. Suggestion: Replace UNIX timestamps with
+human readable dates, this will also make it easy to check for multiple
+instances of data per date.
+
+-Entire project is coded in javascript and while not many people force
+javascript from running, this could potentially be a problem that needs
+to be addressed in the HTML.
+
