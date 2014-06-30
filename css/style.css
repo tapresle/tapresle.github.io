@@ -4,7 +4,7 @@
   }
 }
 
-@media all and (max-width: 625px) and (min-width: 400px) {
+@media all and (max-width: 641px) and (min-width: 400px) {
   .btn {
       width: 100%;
   }
@@ -13,7 +13,7 @@
   }
 }
 
-@media all and (min-width: 626px) {
+@media all and (min-width: 641px) {
   #topcont {
       width: 80%;
   }
