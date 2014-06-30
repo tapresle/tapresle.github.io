@@ -5,8 +5,17 @@
 }
 
 @media all and (max-width: 625px) and (min-width: 400px) {
-    .btn {
+  .btn {
       width: 100%;
+  }
+  #topcont {
+      width: 100%;
+  }
+}
+
+@media all and (min-width: 626px) {
+  #topcont {
+      width: 80%;
   }
 }
 
@@ -40,8 +49,4 @@ body {
 
 #details {
     font-size: 12px;
-}
-
-#topcont {
-    width: 80%;
 }
