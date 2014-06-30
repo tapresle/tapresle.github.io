@@ -1,14 +1,32 @@
+@media all and (max-width: 422px) and (min-width: 400px) {
+  h1 {
+      font-size: 2.25em;
+  }
+}
+
+@media all and (max-width: 625px) and (min-width: 400px) {
+    .btn {
+      width: 100%;
+  }
+}
+
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-    padding-bottom: 60px;
     background-image: url(../images/bkg.svg);
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 60px;
+}
+
+.ftext {
+    color: white;
+    font-size: 10px;
+    text-decoration: none;
 }
 
 #footer {
@@ -20,12 +38,10 @@ body {
   background-color: transparent;
 }
 
-.ftext {
-    color: white;
-    font-size: 10px;
-    text-decoration: none;
-}
-
 #details {
     font-size: 12px;
+}
+
+#topcont {
+    width: 80%;
 }
