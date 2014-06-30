@@ -61,7 +61,7 @@
               <h1>Ted Presley</h1>
               <p>Senior at North Carolina State University studying Computer Science</p>
               </div>
-              <button type="button" id="contact" class="btn btn-danger btn-lg" data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="<address>
+              <button type="button" id="contact" class="btn btn-danger btn-lg" data-container="body" data-toggle="popover" data-html="true" data-content="<address>
       <strong>Ted Presley</strong><br>
       778 Main Street<br>
       Lillington, NC 27546<br>
@@ -249,7 +249,19 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Calls to initialize tooltip and popovers -->
     <script>$('#contact').tooltip();</script>
-    <script>$('#contact').popover();</script>
+    <!-- Script to move the popover depending on the width of the browser window -->
+    <script>
+        $(document).ready(function(){
+            $('#contact').popover({
+                placement: wheretoplace
+            });
+        });
+        function wheretoplace(){
+            var width = window.innerWidth;
+            if (width < 640) return 'bottom';
+            return 'right';
+        }
+    </script>
     <!-- This closes the navbar when on mobile after clicking an item -->
     <!-- This doesn't work like I want it to currently so I'm hiding it
     <script>$(document).ready(function () {
