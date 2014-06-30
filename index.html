@@ -61,7 +61,7 @@
               <h1>Ted Presley</h1>
               <p>Senior at North Carolina State University studying Computer Science</p>
               </div>
-              <button type="button" id="contact" class="btn btn-danger btn-lg" data-container="body" data-toggle="popover" data-html="true" data-content="<address>
+              <button type="button" id="contact" class="btn btn-danger btn-lg popover-dismiss" data-container="body" data-toggle="popover" data-html="true" data-content="<address>
       <strong>Ted Presley</strong><br>
       778 Main Street<br>
       Lillington, NC 27546<br>
@@ -253,6 +253,7 @@
     <script>
         $(document).ready(function(){
             $('#contact').popover({
+                trigger: 'focus', //This makes the popover go away if you click anywhere on the page
                 placement: wheretoplace
             });
         });
