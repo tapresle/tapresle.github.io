@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Motiv8</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                var images = ['Brick.jpg', 'Ocean.jpg', 'Bridge.jpg'];
+                $('body').css({'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')'});
+
+                var quotes = ['Life isn\'t about getting and having, it\'s about giving and being', 'You can never cross the ocean until you have the courage to lose sight of the shore', 'Your time is limited, so don\’t waste it living someone else\’s life.'];
+                var selectedquote = quotes[Math.floor(Math.random() * quotes.length)];
+                $('#quote').text(selectedquote);
+
+                var fonts = ['sunrise', 'gloria', 'lobster', 'love', 'pacifico', 'shadows', 'shadows2', 'girl'];
+                var selectedfont = fonts[Math.floor(Math.random() * fonts.length)];
+                $('#quote').css({'font-family': selectedfont});
+
+            }); 
+        </script>   
+        <div id="quote">Life isn&#39;t about getting and having, it&#39;s about giving and being.</div>
+    </body>
+
+</html>

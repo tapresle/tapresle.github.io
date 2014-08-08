@@ -1,0 +1,54 @@
+@font-face {
+    font-family: sunrise;
+    src: url('../fonts/WaitingfortheSunrise.ttf');
+}
+
+@font-face {
+    font-family: gloria;
+    src: url('../fonts/GloriaHallelujah.ttf');
+}
+
+@font-face {
+    font-family: lobster;
+    src: url('../fonts/Lobster.ttf');
+}
+
+@font-face {
+    font-family: love;
+    src: url('../fonts/LoveYaLikeASister.ttf');
+}
+
+@font-face {
+    font-family: pacifico;
+    src: url('../fonts/Pacifico.ttf');
+}
+
+@font-face {
+    font-family: shadows;
+    src: url('../fonts/ShadowsIntoLight.ttf');
+}
+
+@font-face {
+    font-family: shadows2;
+    src: url('../fonts/ShadowsIntoLightTwo-Regular.ttf');
+}
+
+@font-face {
+    font-family: girl;
+    src: url('../fonts/TheGirlNextDoor.ttf');
+}
+
+
+body {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#quote {
+    color: white;
+    font-size: 5em;
+    text-align: center;
+}
