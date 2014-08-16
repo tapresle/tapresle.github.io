@@ -1,52 +1,142 @@
-@media all and (max-width: 422px) and (min-width: 320px) {
-  h1 {
-      font-size: 2.25em;
-  }
-}
-
-@media all and (max-width: 640px) and (min-width: 320px) {
-  .btn {
-      width: 100%;
-  }
-  #topcont {
-      width: 100%;
-  }
-}
-
-@media all and (min-width: 641px) {
-  #topcont {
-      width: 80%;
-  }
-}
-
-
 html {
-  position: relative;
-  min-height: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-    background-image: url(../images/bkg.svg);
+    background: #777 url("../images/header.jpg") no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 60px;
+    background-position: center;
+    height: 100%;
+    width: 100%;
 }
 
-.ftext {
-    color: white;
-    font-size: 10px;
-    text-decoration: none;
+h1 {
+    font-size: 48px;
+}
+
+ul {
+    list-style-type: none;
+    text-align: left;
+    padding: 0 0;
+}
+
+.img-circle {
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#headerwrap {
+    background: transparent;
+    min-height: 90%;
+}
+
+#headerwrap .container {
+    text-align: center;
+}
+
+#headertext {
+    color: #FFF;
+    text-shadow: #333 2px 2px 2px;
+}
+
+#spacer {
+    height: 275px;
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: transparent;
+    background-color: #000;
+    color: #FFF;
 }
 
-#details {
-    font-size: 12px;
+.divider {
+    height: 3px;
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0;
+}
+
+.projectdivider {
+    height: 3px;
+    width: 50%;
+    background-color: #FFF;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar, .navbar-toggle, .navbar-collapse{
+    background: transparent;
+    border: none;
+    color: #FFF;
+    
+}
+
+.navbar {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.contentwrap {
+    background: #000;
+    color: #FFF;
+}
+
+.list-group > a {
+    background-color: transparent;
+    color: #FFF;
+    width: 90%;
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #FFF;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #FFF;
+    background: 0 0;
+}
+
+.btn-circle:hover {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #AAA;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #AAA;
+    background: 0 0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+.container {
+    width: 100%;
 }

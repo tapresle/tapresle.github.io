@@ -1,296 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ted Presley's Resume</title>
-    <link rel="shortcut icon" href="favicon.ico">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-      
-    <!-- Page custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+<html class="full" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ted Presley's Portfolio</title>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
         <!-- Begin Navbar -->
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <p class="navbar-brand">Ted Presley</p>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand aboutscroll">Ted Presley</a>
             </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#edu">Education</a></li>
-                <li><a href="#we">Work Experience</a></li>
-                <li><a href="#ts">Technical Skills</a></li>
-                <li><a href="#cw">Coursework</a></li>
-                <li><a href="#projects">Projects</a></li>
-              </ul>
+            <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right">
+                <ul id="nav" class="nav navbar-nav">
+                    <li><a class="aboutscroll">About Me</a></li>
+                    <li><a id="projectscroll">Projects</a></li>
+                    <li><a id="workscroll">Work Experience</a></li>
+                    <li><a id="techscroll">Technical Skills</a></li>
+                    <li><a id="coursescroll">Coursework</a></li>
+                </ul>
             </div>
-            </div>
-            </nav>
+        </div>
         <!-- End Navbar -->
-      
-        <!-- Begin Personal Header -->
-        <div id="topcont" class="container">
-        <!-- Personal Header -->
-        <div class="jumbotron">
-          <div class="container">
-          <div class="row">
-              <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                  <img src="./images/TedPresley.jpg" alt="...">
+        <div id="headerwrap" >
+            <div class="container">
+                <br/><br/>
+                <div id="headertext">
+                    <h1>Ted Presley</h1>
+                    <h2>Senior in Computer Science at North Carolina State University</h2>
+                </div>
+                <div id="spacer"></div>
+                <a class="btn btn-circle aboutscroll">
+                    <i class="fa fa-angle-double-down"></i>
                 </a>
-              </div>
-              <h1>Ted Presley</h1>
-              <p>Senior at North Carolina State University studying Computer Science</p>
-              </div>
-              <button type="button" id="contact" class="btn btn-danger btn-lg" data-container="body" data-toggle="popover" data-html="true" data-content="<address>
-      <strong>Ted Presley</strong><br>
-      Phone: (336) 816-2053<br>
-      <a href=mailto:tapresle@ncsu.edu>tapresle@ncsu.edu</a>
-    </address>">
-      Contact Me
-              </button>
+            </div>
         </div>
-        </div>
-        <!-- End Personal Header -->
-        
-        <!-- Begin Education -->
-        <div id="edu" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Education</h3>
-          </div>
-          <div class="panel-body">
-            <p><strong>North Carolina State University, </strong>Raleigh, NC <br>
-            B.S. Computer Science, December 2014<br>
-            GPA: 3.01<br>
-            Dean's List</p>
-          </div>
-        </div>
-        <!-- End Education -->
-            
-        <!-- Begin Work Experience -->
-        <div id="we" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Work Experience</h3>
-          </div>
-          <div class="panel-body">
-            <p>
-                <h4>Product Manager at Bamboo Mobile Health</h4>
-                May 2014 - Present | Raleigh, NC
-                <p id="details">Responsibilities include taking help desk calls from patients, help with onboarding patients, provide support related to company software to patients.</p> 
-            </p>
-            <br>
-            <p>
-                <h4>Software Developer at Bamboo Mobile Health</h4>
-                May 2014 - Present | Raleigh, NC
-                <p id="details">Research web solutions. Help integrate team's work into current system. Develop landing page for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS.</p> 
-            </p>
-          </div>
-        </div>
-        <!-- End Work Experience -->
-    
-        <!-- Begin Technical Skills -->
-        <div id="ts" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Technical Skills</h3>
-          </div>
-          <div id="tsbody" class="panel-body">
-            <div id="skill" class="row">
-                <div class="col-md-6">
-                    <ul class="list-group"><strong>Languages:</strong>
-                      <li class="list-group-item">Java</li>
-                      <li class="list-group-item">Android</li>
-                      <li class="list-group-item">C/C++</li>
-                      <li class="list-group-item">C#</li>
-                      <li class="list-group-item">HTML5</li>
-                      <li class="list-group-item">CSS3</li>
-                      <li class="list-group-item">Bootstrap</li>
-                      <li class="list-group-item">Javascript</li>
-                      <li class="list-group-item">JQuery</li>
-                      <li class="list-group-item">D3js</li>
-                      <li class="list-group-item">Pebble API</li>
-                      <li class="list-group-item">PHP</li>
-                    </ul>
+        <div class="contentwrap">
+            <div class="container">
+                <div id="about">
+                    <div class="container">
+                        <h1>About Me</h1>
+                        <div class="col-md-4"><img src="/images/TedPresley.jpg" alt="Ted Presley" class="img-circle img-responsive"></div>
+                        <div class="col-md-4"><p><b>My Story:</b><br/>
+                            I started out as a kid who loved video games and I've grown to a team leader and software developer that loves to make products that both clients and their users enjoy. I was first introduced to Computer Science five years ago and from the start I had a love for it and solving problems through software.</p></div>
+                        <div class="col-md-4"><b>Education:</b>
+                        <p><strong>North Carolina State University, </strong>Raleigh, NC <br>
+                        B.S. Computer Science, December 2014<br>
+                        GPA: 3.01<br>
+                        Dean's List</p><b>Contact: </b><a href="mailto:tapresle@ncsu.edu">tapresle@ncsu.edu</a></div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <ul class="list-group"><strong>Software:</strong>
-                      <li class="list-group-item">Microsoft Office Suite</li>
-                      <li class="list-group-item">Eclipse</li>
-                      <li class="list-group-item">Github</li>
-                      <li class="list-group-item">LaTeX</li>
-                      <li class="list-group-item">Unity</li>
-                      <li class="list-group-item">GameMaker:Studio</li>
-                    </ul>
-                </div>
-              </div>
-          </div>
-        </div>
-        <!-- End Technical Skills -->
-    
-        <!-- Begin Coursework -->
-        <div id="cw" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Coursework</h3>
-          </div>
-          <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item">Intro to Computing – Java</li>
-                <li class="list-group-item">Programming Concepts – Java</li>
-                <li class="list-group-item">C/Software Tools</li>
-                <li class="list-group-item">Computer Organization and Assembly</li>
-                <li class="list-group-item">Operating Systems</li>
-                <li class="list-group-item">Data Structures and Algorithms</li>
-                <li class="list-group-item">Software Engineering</li>
-                <li class="list-group-item">Automata, Grammars, and Computability</li>
-                <li class="list-group-item">Computer Networks</li>
-                <li class="list-group-item">Introduction to Artificial Intelligence</li>
-                <li class="list-group-item">Applied Web Computing</li>
-                <li class="list-group-item">Entrepreneurial Innovation</li>
-            </ul>
-          </div>
-        </div>
-        <!-- End Coursework -->
-        
-        <!-- Begin Project Collapsibles -->
-        <div id="projects" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Projects</h3>
-          </div>
-              <div class="panel-body">
-                <div class="panel-group" id="accordion">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseNew">
-                            Motiv8me.info
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseNew" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <p>As a summer project I started Motiv8me based on a question my fianc&eacute; asked me. "Is there a website that brings together great photography and motivational quotes to brighten someone's day?" At the time I was also learning more about web developement and really wanted to give myself a challenge. Motiv8me was created using HTML5, CSS3, Javascript, Jquery, PHP, and Bootstrap. Currently the website allows users to view a randomly picked photo and quote that are on an automatic cycle every ten seconds. Users can toggle the cycle by clicking a link and can also manually go to the next randomly picked photo and quote. Users can also use a "Contribute" link to upload their own photos or quotes.</p>
-                          <p>You can view the website at <a href="http://motiv8me.info">Motiv8me.info</a></p>
-                          <p>I have also open sourced this project and the Github repo can be found <a href="http://www.github.com/tapresle/motiv8me">here.</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            Creating a data visualization dashboard
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <p>As the team leader, I had to communicate with my team's sponsor and gather the requirements for the web app that he wanted developed. The objective of the project was to make a dashboard that someone could go to and log into to see the severity of their symptoms for MS. In this project, we used HTML5, CSS3, Javascript, JQuery, and D3js to complete the dashboard. Due to time constraints, we did not get the add in the Google log in functionality, but we did get a functional visualization with static json data.</p>
+                
+                <div class="divider"></div>
+                
+                <div id="project">
+                    <div class="container">
+                        <h1>Projects</h1>
+                        <div id="motiv8me">
+                            <h3>Motiv8me.info</h3>
+                            <p>As a summer project I started Motiv8me based on a question my fianc&eacute; asked me. "Is there a website that brings together great photography and motivational quotes to brighten someone's day?" At the time I was also learning more about web developement and really wanted to give myself a challenge. Motiv8me was created using HTML5, CSS3, Javascript, Jquery, PHP, and Bootstrap. Currently the website allows users to view a randomly picked photo and quote that are on an automatic cycle every ten seconds. Users can toggle the cycle by clicking a link and can also manually go to the next randomly picked photo and quote. Users can also use a "Contribute" link to upload their own photos or quotes.</p>
+                            <p>You can view the website at <a href="http://motiv8me.info">Motiv8me.info</a></p>
+                            <p>I have also open sourced this project and the Github repo can be found <a href="http://www.github.com/tapresle/motiv8me">here.</a></p>
+                        </div>
+                        
+                        <div class="projectdivider"></div>
+                        
+                        <div id="dataviz">
+                            <h3>Create a data visualiztion dashboard</h3>
+                            <p>As the team leader, I had to communicate with my team's sponsor and gather the requirements for the web app that he wanted developed. The objective of the project was to make a dashboard that someone could go to and log into to see the severity of their symptoms for MS. In this project, we used HTML5, CSS3, Javascript, JQuery, and D3js to complete the dashboard. Due to time constraints, we did not get the add in the Google log in functionality, but we did get a functional visualization with static json data.</p>
                           <p>A link to the demo of the project is located <a href="dataviz/index.html">here.</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                          iTrust
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          As team leader, I organized timelines and kept the team on track until completion of the project. Worked in Java, mySQL, and JSP pages on an Apache tomcat server. Worked with a Jenkins build server. Implemented key components such as enhancing password security and integrating quality of life changes in the display of health metrics. My team completed all enhancements assigned, plus an extra we were approved to add on. The team followed an agile software development process with 7 day sprints and had a major meeting each week to turn in and discuss the enchancements we implemented that week. Our team ended the project with a score of 100 out of 100 points.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Pebble Watchfaces and Apps
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          I have developed a few Pebble Watchfaces to get into the development of wearable devices.
+                        </div>
+                        
+                        <div class="projectdivider"></div>
+                        
+                        <div id="itrust">
+                            <h3>iTrust</h3>
+                            <p>As team leader, I organized timelines and kept the team on track until completion of the project. Worked in Java, mySQL, and JSP pages on an Apache tomcat server. Worked with a Jenkins build server. Implemented key components such as enhancing password security and integrating quality of life changes in the display of health metrics. My team completed all enhancements assigned, plus an extra we were approved to add on. The team followed an agile software development process with 7 day sprints and had a major meeting each week to turn in and discuss the enchancements we implemented that week. Our team ended the project with a score of 100 out of 100 points.</p>
+                        </div>
+                        
+                        <div class="projectdivider"></div>
+                        
+                        <div id="pebble">
+                            <h3>Pebble Apps</h3>
+                            <p>I have developed a few Pebble Watchfaces to get into the development of wearable devices. The four apps I have made so far have over 400 downloads total.</p>
                           <div class="list-group">
                             <a href="https://apps.getpebble.com/applications/5353b54022d5a159d3000114" class="list-group-item">My first watchface, based on a popular show, Sword Art Online</a>
                             <a href="https://apps.getpebble.com/applications/53554676c55d5a399e000058" class="list-group-item">My second watchface, also based on a popular show, Sword Art Online</a>
                             <a href="https://apps.getpebble.com/applications/5361541e2e64f1262f00001b" class="list-group-item">My third watchface, also based on a popular show, Sword Art Online</a>
-                            <a href="https://apps.getpebble.com/applications/53b34536977c65eb0d000092" class="list-group-item">My fourth watchface, called Bounce, which uses the accelerometer in the watch to move balls or discs around the face, also includes the time and a battery beter</a>
-                        </ul>
-                      </div>
+                            <a href="https://apps.getpebble.com/applications/53b34536977c65eb0d000092" class="list-group-item">My fourth watchface, called Bounce, which uses the accelerometer in the watch to move balls or discs around the face, also includes the time and a battery meter</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
+                        
+                <div class="divider"></div>        
+                        
+                <div id="work">
+                    <div class="container">
+                        <h1>Work Experience</h1>
+                        <h4>Product Manager at Bamboo Mobile Health</h4>
+                        May 2014 - Present | Raleigh, NC
+                        <p>Responsibilities include taking help desk calls from patients, help with onboarding patients, provide support related to company software to patients.</p> 
+                        <br/>
+                        <h4>Software Developer at Bamboo Mobile Health</h4>
+                        May 2014 - Present | Raleigh, NC
+                        <p>Research web solutions. Help integrate team's work into current system. Develop landing page for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS.</p> 
+                        
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div id="tech">
+                    <div class="container">
+                        <h1>Technical Skills</h1>
+                        <div class="col-md-6">
+                            <b>Languages/Libraries:</b>
+                            <br/>
+                            <ul>
+                                <li>Java</li>
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>Javascript</li>
+                                <li>Jquery</li>
+                                <li>Bootstrap</li>
+                                <li>PHP</li>
+                                <li>Android</li>
+                                <li>C/C++</li>
+                                <li>Pebble API</li>
+                                <li>C#</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <b>Software:</b>
+                            <br/>
+                            <ul>
+                                <li>Eclipse</li>
+                                <li>Git</li>
+                                <li>Brackets</li>
+                                <li>Unity</li>
+                                <li>Microsoft Office Suite</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div id="coursework">
+                    <div class="container">
+                        <h1>Coursework</h1>
+                        <ul>
+                            <li>Intro to Computing – Java</li>
+                            <li>Programming Concepts – Java</li>
+                            <li>C/Software Tools</li>
+                            <li>Computer Organization and Assembly</li>
+                            <li>Operating Systems</li>
+                            <li>Data Structures and Algorithms</li>
+                            <li>Software Engineering</li>
+                            <li>Automata, Grammars, and Computability</li>
+                            <li>Computer Networks</li>
+                            <li>Introduction to Artificial Intelligence</li>
+                            <li>Applied Web Computing</li>
+                            <li>Entrepreneurial Innovation</li>
+                            <li>Computer Security</li>
+                            <li>Senior Design Project</li>
+                        </ul>
+                    </div>
+                </div>
+                <br/><br/>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- End Project Collapsibles -->
-
-      <!-- Begin Footer -->
+        
+        <!-- Begin Footer -->
       <div id="footer">
           <div class="container">
             <p class="ftext">Powered by <a href="http://getbootstrap.com">Bootstrap</a>
-               and <a href="https://github.com/tapresle">Github.</a> 
-               Background provided by <a href="http://qrohlf.com/trianglify/">http://qrohlf.com/trianglify/</a></p>
+               and <a href="https://github.com/tapresle">Github.</a>
+            </p>
           </div>
       </div>
       <!-- End Footer -->
-    
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Calls to initialize tooltip and popovers -->
-    <script>$('#contact').tooltip();</script>
-    <!-- Script to move the popover depending on the width of the browser window -->
-    <script>
-        $(document).ready(function(){
-            $('#contact').popover({
-                placement: wheretoplace
+        
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(".aboutscroll").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#about").offset().top},
+                'slow');
             });
-        });
-        function wheretoplace(){
-            var width = window.innerWidth;
-            if (width < 640) return 'bottom';
-            return 'right';
-        }
-    </script>
-    <!-- This closes the navbar when on mobile after clicking an item -->
-    <!-- This doesn't work like I want it to currently so I'm hiding it >
-    <script>$(document).ready(function () {
-        $(".navbar-nav li a").click(function(event) {
-        $(".navbar-collapse").collapse('hide');
-        });
-        });
-      </script>
-    <!-->
-    <!-- Chat Box provided by Firehose Chat -->
-    <script type="text/javascript">
-      var FHChat = {product_id: "95d3c4cfbf4a"};
-      FHChat.customAttributes=[];FHChat.sendCustomAttributes=function(data){this.customAttributes.push(data)};!function(){var a,b;return b=document.createElement("script"),a=document.getElementsByTagName("script")[0],b.src="https://chat-client-js.firehoseapp.com/chat-min.js",b.async=!0,a.parentNode.insertBefore(b,a)}();
-    </script>
-  </body>
+            $("#projectscroll").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#project").offset().top},
+                'slow');
+            });
+            $("#workscroll").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#work").offset().top},
+                'slow');
+            });
+            $("#techscroll").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#tech").offset().top},
+                'slow');
+            });
+            $("#coursescroll").click(function() {
+            $('html,body').animate({
+                scrollTop: $("#coursework").offset().top},
+                'slow');
+            });
+        </script>
+    </body>
 </html>

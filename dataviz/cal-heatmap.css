@@ -2,7 +2,7 @@
 
 
 html { 
-  	background-color: #000060; 
+  	background: url(img.svg); 
 	 -webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
