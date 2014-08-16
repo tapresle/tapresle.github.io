@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Ted Presley's Portfolio">
+        <meta name="keywords" content="HTML,CSS,JavaScript,Jquery,portfolio,resume">
+        <meta name="author" content="Ted Presley">
         <title>Ted Presley's Portfolio</title>
 
         <!-- Bootstrap -->
@@ -35,6 +38,7 @@
             </div>
         </div>
         <!-- End Navbar -->
+        <!-- Begin Header -->
         <div id="headerwrap" >
             <div class="container">
                 <br/><br/>
@@ -48,8 +52,11 @@
                 </a>
             </div>
         </div>
+        <!-- End Header -->
+        <!-- Begin Content Wrapper -->
         <div class="contentwrap">
             <div class="container">
+                <!-- Begin About Content -->
                 <div id="about">
                     <div class="container">
                         <h1>About Me</h1>
@@ -65,14 +72,15 @@
                         <a href="mailto:tapresle@ncsu.edu">tapresle@ncsu.edu</a></div>
                     </div>
                 </div>
-                
+                <!-- End About Content -->
                 <div class="divider"></div>
-                
+                <!-- Begin Project Content -->
                 <div id="project">
                     <div class="container">
                         <h1>Projects</h1>
                         <div id="motiv8me">
                             <h3>Motiv8me.info</h3>
+                            <img id="motiv8meimg" class="img-responsive" src="images/motiv8me.png" alt="Motiv8me">
                             <p>As a summer project I started Motiv8me based on a question my fianc&eacute; asked me. "Is there a website that brings together great photography and motivational quotes to brighten someone's day?" At the time I was also learning more about web developement and really wanted to give myself a challenge. Motiv8me was created using HTML5, CSS3, Javascript, Jquery, PHP, and Bootstrap. Currently the website allows users to view a randomly picked photo and quote that are on an automatic cycle every ten seconds. Users can toggle the cycle by clicking a link and can also manually go to the next randomly picked photo and quote. Users can also use a "Contribute" link to upload their own photos or quotes.</p>
                             <p>You can view the website at <a href="http://motiv8me.info">Motiv8me.info</a></p>
                             <p>I have also open sourced this project and the Github repo can be found <a href="http://www.github.com/tapresle/motiv8me">here.</a></p>
@@ -82,6 +90,7 @@
                         
                         <div id="dataviz">
                             <h3>Create a data visualiztion dashboard</h3>
+                            <img id="datavizimg" class="img-responsive" src="images/dataviz.png" alt="dataviz">
                             <p>As the team leader, I had to communicate with my team's sponsor and gather the requirements for the web app that he wanted developed. The objective of the project was to make a dashboard that someone could go to and log into to see the severity of their symptoms for MS. In this project, we used HTML5, CSS3, Javascript, JQuery, and D3js to complete the dashboard. Due to time constraints, we did not get the add in the Google log in functionality, but we did get a functional visualization with static json data.</p>
                           <p>A link to the demo of the project is located <a href="dataviz/index.html">here.</a></p>
                         </div>
@@ -107,9 +116,9 @@
                         </div>
                     </div>
                 </div>
-                        
+                <!-- End Project Content --> 
                 <div class="divider"></div>        
-                        
+                <!-- Begin Work Content -->
                 <div id="work">
                     <div class="container">
                         <h1>Work Experience</h1>
@@ -120,12 +129,11 @@
                         <h4>Software Developer at Bamboo Mobile Health</h4>
                         May 2014 - Present | Raleigh, NC
                         <p>Research web solutions. Help integrate team's work into current system. Develop website for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS. Majority of work has been on developing the <a href="http://ms101.me">MS101.me</a> website. This included taking the website made on Wix and publishing it on the domain with working PHP contact scripts. I then re-made the website so it is responsive and can be viewed on mobile devices while the patient is still at the doctor's office.</p> 
-                        
                     </div>
                 </div>
-                
+                <!-- End Work Content -->
                 <div class="divider"></div>
-                
+                <!-- Begin Technical Skills Content -->
                 <div id="tech">
                     <div class="container">
                         <h1>Technical Skills</h1>
@@ -159,9 +167,9 @@
                         </div>
                     </div>
                 </div>
-                
+                <!-- End Technical Skills Content -->
                 <div class="divider"></div>
-                
+                <!-- Begin Coursework Content -->
                 <div id="coursework">
                     <div class="container">
                         <h1>Coursework</h1>
@@ -183,24 +191,23 @@
                         </ul>
                     </div>
                 </div>
+                <!-- End Coursework Content -->
                 <br/><br/>
             </div>
         </div>
-        
-      <!-- Begin Footer -->
-      <div id="footer">
+        <!-- End Content Wrapper -->
+        <!-- Begin Footer -->
+        <div id="footer">
           <div class="container">
             <p class="ftext">Powered by <a href="http://getbootstrap.com">Bootstrap</a>
                and <a href="https://github.com/tapresle">Github.</a>
             </p>
           </div>
-      </div>
-      <!-- End Footer -->
-        
-        
+        </div>
+        <!-- End Footer -->
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script>

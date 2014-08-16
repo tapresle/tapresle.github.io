@@ -1,6 +1,7 @@
 html {
     height: 100%;
     width: 100%;
+    font-family: Helvetica;
 }
 
 body {
@@ -47,9 +48,10 @@ ul {
     height: 275px;
 }
 
-#footer {
-    background-color: #000;
-    color: #FFF;
+#motiv8meimg, #datavizimg {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .divider {
@@ -85,9 +87,10 @@ ul {
     padding-right: 5%;
 }
 
-.contentwrap {
-    background: #000;
+.contentwrap, #footer {
+    background: #222;
     color: #FFF;
+    font-size: 16px;
 }
 
 .list-group > a {
@@ -152,6 +155,12 @@ ul {
         width: 100%;
     }
     
+    #motiv8meimg, #datavizimg {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .navbar-default .navbar-toggle .icon-bar {
         background-color: rgba(255,255,255,1);
    }
@@ -187,6 +196,12 @@ ul {
         background-size: cover !important;
         height: 95%;
         width: 100%;
+    }
+    
+    #motiv8meimg, #datavizimg {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .navbar-default .navbar-toggle .icon-bar {
