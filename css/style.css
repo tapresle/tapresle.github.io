@@ -9,7 +9,6 @@ body {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-position: center;
     height: 100%;
     width: 100%;
 }
@@ -139,4 +138,78 @@ ul {
 
 .container {
     width: 100%;
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    body {
+        background: #777 url("../images/headerm.jpg") no-repeat center center;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover !important;
+        height: 95%;
+        width: 100%;
+    }
+    
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgba(255,255,255,1);
+   }
+    
+    .navbar-default .navbar-brand {
+        visibility: hidden;
+    }
+    
+    #spacer {
+        height: 0px;
+    }
+    
+    .btn-circle:hover {
+        width: 70px;
+        height: 70px;
+        margin-top: 15px;
+        padding: 7px 16px;
+        border: 2px solid #FFF;
+        border-radius: 35px;
+        font-size: 40px;
+        color: #FFF;
+        background: 0 0;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    body {
+        background: #777 url("../images/headerm.jpg") no-repeat center center;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover !important;
+        height: 95%;
+        width: 100%;
+    }
+    
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgba(255,255,255,1);
+    }
+    
+    .navbar-default .navbar-brand {
+        visibility: hidden;
+    }
+    
+    #spacer {
+        height: 0px;
+    }
+    
+    .btn-circle:hover {
+        width: 70px;
+        height: 70px;
+        margin-top: 15px;
+        padding: 7px 16px;
+        border: 2px solid #FFF;
+        border-radius: 35px;
+        font-size: 40px;
+        color: #FFF;
+        background: 0 0;
+    }
 }
