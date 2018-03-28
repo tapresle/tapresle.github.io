@@ -92,6 +92,7 @@ html.parallax {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    -webkit-overflow-scrolling : touch !important; /* Used to help with issus in iOS */
   }
 }
 
