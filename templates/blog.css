@@ -48,11 +48,27 @@ main p:first-of-type {
 
 footer {
   text-align: center;
-  background-color: #a0a0a0;
+  color: #fff;
+  text-shadow: #333 2px 2px 2px;
 }
 
 footer p {
   padding: 12px 0;
+}
+
+/* --Parallax Effect-- */
+html.parallax {
+  background-color: transparent;
+}
+
+.parallax body {
+  background: transparent url("../images/header.jpg") no-repeat center center fixed;
+  background-size: cover;
+  
+}
+
+.parallax header {
+  background: transparent;
 }
 
 /* ---Media Queries--- */
