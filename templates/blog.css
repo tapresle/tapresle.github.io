@@ -36,6 +36,7 @@ main {
   max-width: 50%;
   margin: -15% auto 5% auto;
   border-radius: 6px;
+  -webkit-overflow-scrolling : touch !important; /* Used to help with issus in iOS */
 }
 
 main p {
@@ -73,7 +74,6 @@ html.parallax {
   background: transparent;
 }
 
-/* TODO: Add iOS scrolling fix from Taylor's site */
 @media (max-width: 768px) {
   .parallax body {
     background: none;
@@ -85,14 +85,13 @@ html.parallax {
     left: 0;
     top: 0;
     width: 100%;
-    height: 110%;
+    height: 100%;
     z-index: -10;
     background: url(../images/header.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    -webkit-overflow-scrolling : touch !important; /* Used to help with issus in iOS */
   }
 }
 
