@@ -8,6 +8,8 @@ html, body {
   width: 100%;
   font-family: 'Open Sans', sans-serif;
   background-color: #d0d0d0;
+  -webkit-overflow-scrolling : touch !important; /* Used to help with issues in iOS */
+
 }
 
 header {
@@ -71,6 +73,7 @@ html.parallax {
   background: transparent;
 }
 
+/* TODO: Add iOS scrolling fix from Taylor's site */
 @media (max-width: 768px) {
   .parallax body {
     background: none;
