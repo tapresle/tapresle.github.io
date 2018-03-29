@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background: #777 url("../images/header.jpg") no-repeat center center fixed;
+    background: #777 url("../images/header-optimized.jpg") no-repeat center center fixed;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
