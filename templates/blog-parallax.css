@@ -1,0 +1,35 @@
+/* --Parallax Effect-- */
+html.parallax {
+  background-color: transparent;
+}
+
+.parallax body {
+  background: transparent url(../images/stars.jpg) no-repeat center center fixed;
+  background-size: cover;
+  
+}
+
+.parallax header {
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .parallax body {
+    background: none;
+  }
+  .parallax body:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    background: url(../images/stars.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
