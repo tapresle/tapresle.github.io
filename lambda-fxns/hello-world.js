@@ -1,9 +1,8 @@
 exports.handler = function(event, context, callback) {
     // your server-side functionality
   callback(null, {
-    200,
-    "",
-    body: event
+    statusCode: 200,
+    body: "Hello World from Lambda functions driven by Netlify!"
   });
 }
 
