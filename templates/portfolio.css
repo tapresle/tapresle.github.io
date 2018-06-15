@@ -90,9 +90,23 @@ footer {
   text-align: center;
 }
 
+footer a {
+  color: #FFF;
+}
+
 /* Media Queries */
 
 @media (max-width: 768px) {
+  body {
+    background: #777 url("../images/headerm.jpg") no-repeat center center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
+    height: 95%;
+    width: 100%;
+  }
+  
   nav .links {
     display: none;
   }
