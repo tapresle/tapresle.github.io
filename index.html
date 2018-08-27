@@ -6,7 +6,7 @@
     <title>Ted Presley's Portfolio</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="./css/styles.css" rel=stylesheet>
   </head>
   <body>
@@ -38,7 +38,7 @@
         <div class="col-1-3">
           <h2>Education</h2>
           <p>
-            <strong>North Carolina State University - </strong>Raleigh, NC<br/>
+            North Carolina State University - Raleigh, NC<br/>
             B.S. Computer Science, December 2014
           </p>
           <br/>
@@ -53,15 +53,22 @@
         <h1>Work Experience</h1>
         <br/>
         <h3>Software Engineer at Fidelity Investments</h3>
-        Jan 2015 - Present | RTP, NC
+        <p>Jan 2015 - Present | Research Triangle Park, NC</p>
+        <br/>
         <p>Responsibilites include assisting other software engineers with various projects, attending meetings on projects and lending my expertise and opinions, ensure projects get released on time and to specification, helping with onboarding of new software engineers, and working with a team both on site and remotely.</p>
-        <br/>
+
+        <div class="divider"></div>
+
         <h3>Software Developer at Bamboo Mobile Health</h3>
-        May 2014 - Jan 2015 | Raleigh, NC
-        <p>My main responsibility is researching and implementing web solutions. I'm responsible for both the front-end and some back-end of the MS101.me website. I am responsible for maintaining MS101.me and implementing new features. I am responsible for installing a LAMP stack on an AWS instance and maintaining that instance. I have worked with HTML5, CSS3, Javascript, PHP, MySQL, AWS, and Dreamfactory. Developed a website for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS. Majority of work has been on developing the MS101.me website. This included taking the website made on Wix and publishing it on the domain with working PHP contact scripts. I then re-made the website so it is responsive and can be viewed on mobile devices while the patient is still at the doctor's office.</p> 
+        <p>May 2014 - Jan 2015 | Raleigh, NC</p>
         <br/>
+        <p>My main responsibility is researching and implementing web solutions. I'm responsible for both the front-end and some back-end of the MS101.me website. I am responsible for maintaining MS101.me and implementing new features. I am responsible for installing a LAMP stack on an AWS instance and maintaining that instance. I have worked with HTML5, CSS3, Javascript, PHP, MySQL, AWS, and Dreamfactory. Developed a website for patients to request more information, request a help desk session, and enroll in data tracking program for those with MS. Majority of work has been on developing the MS101.me website. This included taking the website made on Wix and publishing it on the domain with working PHP contact scripts. I then re-made the website so it is responsive and can be viewed on mobile devices while the patient is still at the doctor's office.</p> 
+        
+        <div class="divider"></div>
+        
         <h3>Product Manager at Bamboo Mobile Health</h3>
-        May 2014 - Jan 2015 | Raleigh, NC
+        <p>May 2014 - Jan 2015 | Raleigh, NC</p>
+        <br/>
         <p>Responsibilities include taking help desk calls from patients, help with onboarding patients, provide support related to company software to patients.</p> 
       </section>
       <hr>
@@ -70,20 +77,23 @@
         <br/>
         <div id="whiteboard">
           <h2>Whiteboard - NodeJS, Socket.io, Typescript, HTML Canvas</h2>
+          <br/>
           <p>I created a multi-user whiteboard webapp that allows users to collaborate on a drawable HTML Canvas. The user has the ability to join different "rooms", use different colors, and save the whiteboard as an image. You can view the project on my Github <a href="https://github.com/tapresle/whiteboard">here</a>.</p>
         </div>
 
-        <div class="projectdivider"></div>
+        <div class="divider"></div>
 
         <div id="mangaScraper">
           <h2>MangaScraper - NodeJS</h2>
+          <br/>
           <p>I've wanted to play around with web scraping for a while and decided to do something that I could potentially use down the line. MangaScraper will reach out to a website, pull down either a chapter list and/or the pages in each chapter and then copy those pages to your machine. You can view the project on my Github <a href="https://github.com/tapresle/MangaScraper">here</a>.</p>
         </div>
 
-        <div class="projectdivider"></div>
+        <div class="divider"></div>
 
         <div id="templates">
           <h2>Web Design Templates</h2>
+          <br/>
           <p>Lately I've had a bit of a creative streak and wanted to create some new web designs that are totally different than my day to day work. This has so far led to a few different blog post designs. I've open sourced these designs which are covered under the <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. The Github link to the code for all of my templates can be found <a href="https://github.com/tapresle/tapresle.github.io/tree/master/templates">here</a>.</p>
           <div class="link-group">
             <a href="/templates/blog-template.html" class="link-group-item">Plain Blog Post</a>
@@ -93,29 +103,34 @@
           </div>
         </div>
 
-        <div class="projectdivider"></div>
+        <div class="divider"></div>
 
         <div id="avatarGenerator">
           <h2>Avatar Generator</h2>
+          <br/>
           <p>My first foray into using Canvas for anything invovled, I created a 5x5 "pixel" avatar generator. This will randomly create a vertically mirrored image with the ability to save the generated image for personal use. You can view that project's website <a href="https://tapresle.github.io/avatarGenerator/">here</a>.</p>
         </div>
 
-        <div class="projectdivider"></div>
+        <div class="divider"></div>
 
         <div id="motiv8me">
           <h2>Motiv8me</h2>
+          <br/>
           <a href="https://tapresle.github.io/motiv8me/">
             <img id="motiv8meimg" class="img-responsive" src="./images/motiv8me.png" alt="Motiv8me">
           </a>
           <p>As a summer project I started Motiv8me based on a question my fianc&eacute;e asked me. "Is there a website that brings together great photography and motivational quotes to brighten someone's day?" At the time I was also learning more about web developement and really wanted to give myself a challenge. Motiv8me was created using HTML5, CSS3, Javascript, Jquery, PHP, and Bootstrap. Currently the website allows users to view a randomly picked photo and quote that are on an automatic cycle every ten seconds. Users can toggle the cycle by clicking a link and can also manually go to the next randomly picked photo and quote. Users can also use a "Contribute" link to upload their own photos or quotes.</p>
+          <br/>
           <p>You can view the website at <a href="https://tapresle.github.io/motiv8me/">here</a>.</p>
+          <br/>
           <p>I have also open sourced this project and the Github repo can be found <a href="https://www.github.com/tapresle/motiv8me">here.</a></p>
         </div>
 
-        <div class="projectdivider"></div>
+        <div class="divider"></div>
 
         <div id="pebble">
           <h2>Pebble Apps</h2>
+          <br/>
           <p>I have developed a few Pebble Watchfaces to get into the development of wearable devices. The four apps I have made so far have over 400 downloads total. Unfortunately the links to these apps don't work anymore since Pebble was bought by Fitbit and subsequently shut down, but I did gather a lot of experience with embedded systems and working under resource constraints.</p>
           <div class="link-group">
             <a href="#pebble" class="link-group-item">My first watchface, based on a popular show, Sword Art Online</a>
