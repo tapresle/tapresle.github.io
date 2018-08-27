@@ -33,7 +33,6 @@
                     <li><a id="projectscroll" href="#">Projects</a></li>
                     <li><a id="workscroll" href="#">Work Experience</a></li>
                     <li><a id="techscroll" href="#">Technical Skills</a></li>
-                    <li><a id="coursescroll" href="#">Coursework</a></li>
                 </ul>
             </div>
         </div>
@@ -62,11 +61,11 @@
                         <h1>About Me</h1>
                         <div class="col-md-4"><img src="/images/TedPresley.jpg" alt="Ted Presley" class="img-circle img-responsive"></div>
                         <div class="col-md-4"><p><b>My Story:</b><br/>
-                            I started out as a kid who loved video games and I've grown to a team leader and software developer that loves to make products that both clients and their users enjoy. I was first introduced to Computer Science seven years ago and from the start I had a love for it and solving problems through software.</p></div>
+                            I'm a team leader and software developer that loves to make products that both clients and their users enjoy.</p></div>
                         <div class="col-md-4"><b>Education:</b>
                         <p><strong>North Carolina State University, </strong>Raleigh, NC <br>
                         B.S. Computer Science, December 2014<br>
-                        GPA: 3.01<br>
+                        GPA: 3.06<br>
                         Dean's List - 2 Semesters</p>
                         <b>Contact: </b><br/>
                         <a href="mailto:tapresle92@gmail.com">tapresle92@gmail.com</a></div>
@@ -78,10 +77,20 @@
                 <div id="project">
                     <div class="container">
                         <h1>Projects</h1>
+                        <div id="whiteboard">
+                            <h3>Whiteboard - NodeJS, Socket.io, Typescript, HTML Canvas</h3>
+                            <p>I created a multi-user whiteboard webapp that allows users to collaborate on a drawable HTML Canvas. The user has the ability to join different "rooms", use different colors, and save the whiteboard as an image. You can view the project on my Github <a href="https://github.com/tapresle/whiteboard">here</a>.</p>
+                        </div>
+                      
+                        <div class="projectdivider"></div>
+                      
                         <div id="mangaScraper">
                             <h3>MangaScraper - NodeJS</h3>
                             <p>I've wanted to play around with web scraping for a while and decided to do something that I could potentially use down the line. MangaScraper will reach out to a website, pull down either a chapter list and/or the pages in each chapter and then copy those pages to your machine. You can view the project on my Github <a href="https://github.com/tapresle/MangaScraper">here</a>.</p>
                         </div>
+                      
+                        <div class="projectdivider"></div>
+                      
                         <div id="templates">
                             <h3>Web Design Templates</h3>
                             <p>Lately I've had a bit of a creative streak and wanted to create some new web designs that are totally different than my day to day work. This has so far led to a few different blog post designs. I've open sourced these designs which are covered under the <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. The Github link to the code for all of my templates can be found <a href="https://github.com/tapresle/tapresle.github.io/tree/master/templates">here</a>.</p>
@@ -92,10 +101,16 @@
                               <a href="/templates/portfolio.html" class="list-group-item">Portfolio</a>
                             </div>
                         </div>
+                      
+                        <div class="projectdivider"></div>
+                      
                         <div id="avatarGenerator">
                             <h3>Avatar Generator</h3>
                             <p>My first foray into using Canvas for anything invovled, I created a 5x5 "pixel" avatar generator. This will randomly create a vertically mirrored image with the ability to save the generated image for personal use. You can view that project's website <a href="https://tapresle.github.io/avatarGenerator/">here</a>.</p>
                         </div>
+                        
+                        <div class="projectdivider"></div>
+
                         <div id="motiv8me">
                             <h3>Motiv8me</h3>
                             <img id="motiv8meimg" class="img-responsive" src="images/motiv8me.png" alt="Motiv8me">
@@ -162,6 +177,7 @@
                                 <li>Javascript</li>
                                 <li>Jquery</li>
                                 <li>AngularJS</li>
+                                <li>Angular 4+</li>
                                 <li>NodeJS</li>
                                 <li>Bootstrap</li>
                                 <li>Pebble API</li>
@@ -182,30 +198,6 @@
                     </div>
                 </div>
                 <!-- End Technical Skills Content -->
-                <div class="divider"></div>
-                <!-- Begin Coursework Content -->
-                <div id="coursework">
-                    <div class="container">
-                        <h1>Coursework</h1>
-                        <ul>
-                            <li>Intro to Computing – Java</li>
-                            <li>Programming Concepts – Java</li>
-                            <li>C/Software Tools</li>
-                            <li>Computer Organization and Assembly</li>
-                            <li>Operating Systems</li>
-                            <li>Data Structures and Algorithms</li>
-                            <li>Software Engineering</li>
-                            <li>Automata, Grammars, and Computability</li>
-                            <li>Computer Networks</li>
-                            <li>Introduction to Artificial Intelligence</li>
-                            <li>Applied Web Computing</li>
-                            <li>Entrepreneurial Innovation</li>
-                            <li>Computer Security</li>
-                            <li>Senior Design Project</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- End Coursework Content -->
                 <br/><br/>
             </div>
         </div>
@@ -243,11 +235,6 @@
             $("#techscroll").click(function() {
             $('html,body').animate({
                 scrollTop: $("#tech").offset().top},
-                'slow');
-            });
-            $("#coursescroll").click(function() {
-            $('html,body').animate({
-                scrollTop: $("#coursework").offset().top},
                 'slow');
             });
         </script>
