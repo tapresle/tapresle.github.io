@@ -179,7 +179,7 @@ footer a {
     width: 100%;
   }
   
-  nav .links {
+  nav .link:not(.show-mobile) {
     display: none;
   }
 }
