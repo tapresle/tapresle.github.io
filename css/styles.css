@@ -90,6 +90,9 @@ main, footer {
   font-size: 16px;
   padding-left: 12px;
   padding-right: 12px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .col-1-3 {
@@ -131,7 +134,7 @@ footer a {
 
 .divider {
   height: 2px;
-  width: 75vw;
+  width: 75%;
   background-color: #FFF;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -181,6 +184,12 @@ footer a {
   
   nav .link:not(.show-mobile) {
     display: none;
+  }
+
+  main, footer {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
