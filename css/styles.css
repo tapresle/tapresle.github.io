@@ -177,7 +177,7 @@ footer a {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
-    background-size: cover !important;
+    background-size: cover;
     height: 95%;
     width: 100%;
   }
@@ -190,6 +190,8 @@ footer a {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
