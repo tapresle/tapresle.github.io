@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CMS Test</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header>
+      <h1>CMS Test</h1>
+    </header>
+    <main>
+      Post Title: <input id="postTitle" type="text">
+      Post Content: <textarea id="postContent"></textarea>
+      Post File: <input id="postFile" type="text">
+      <button type="button" onclick="buildAndDownloadPage()">Generate Page</button>
+    </main>
+    <footer>
+      <p>&copy; 2018 Ted Presley</p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+      <p class="license-text">If you would like to license this design for commercial purposes, please reach out to me via <a href="mailto:tapresle92@gmail.com">email</a></p>
+    </footer>
+    
+    <script>
+      var cmsPage;
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET', './blog-cms.html');
+      xhr.onload=function(){
+          cmsPage = xhr.responseText;
+      }
+      xhr.send();
+      
+      function downloadObjectAsJson(exportObj, exportName){
+        var dataStr = "data:text/html;charset=utf-8," + encodeURIComponent(exportObj);
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href",     dataStr);
+        downloadAnchorNode.setAttribute("download", exportName);
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+      }
+      
+      function buildAndDownloadPage() {
+        var postTitle = document.getElementById('postTitle').value;
+        var postContent = document.getElementById('postContent').value;
+        var postFile = document.getElementById('postFile').value;
+        
+        // Process post content into paragraphs from input
+        postContent = '<p>' + postContent.replace(/\n/g, '</p><br/><p>') + '</p>';
+
+        // Replace title and content
+        cmsPage = cmsPage.replace(/\${postTitle}/, postTitle);
+        cmsPage = cmsPage.replace(/\${postContent}/, postContent);
+
+        downloadObjectAsJson(cmsPage, postFile);
+      }
+    </script>
+  </body>
+</html>
