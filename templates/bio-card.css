@@ -4,7 +4,6 @@ html {
   margin: 0;
   padding: 0;
   font-family: Open Sans;
-  min-width: 480px;
 }
 
 body {
@@ -12,7 +11,7 @@ body {
 }
 
 .wrapper {
-  padding: 10% 30%;
+  padding: 10% 20%;
 }
 
 .card {
