@@ -11,7 +11,10 @@ body {
 }
 
 .wrapper {
-  padding: 10% 20%;
+  padding-top: 10%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
