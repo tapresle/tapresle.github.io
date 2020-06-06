@@ -1,4 +1,7 @@
 node_modules/
 lambda-fxns-src/
-netlify.toml
 .idea
+build/*.js
+.netlify
+.DS_Store
+blog/posts/*
