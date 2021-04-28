@@ -16,3 +16,7 @@
   pretty_urls = true
 [build.processing.images]
   compress = true
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = "interest-cohort=()"
