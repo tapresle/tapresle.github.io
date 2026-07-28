@@ -2,9 +2,22 @@
 <html>
     <body>
         <h2>PhotoFace Configuration</h2>
+        
+        <input 
+            type="file"
+            id="photoPicker"
+            accept="image/*">
+
+        <canvas 
+            id="preview"
+            width="144"
+            height="168">
+        </canvas>
+
         <button id="send">
-            Hello Pebble
+            Send Image
         </button>
+
         <script src="image.js"></script>
     </body>
 </html>
