@@ -1,170 +1,134 @@
 const WIDTH = 144;
 const HEIGHT = 168;
 
-const CHUNK_SIZE = 80;
-
 let imageBytes = null;
 
 
-/*
-  This is the same 64 color palette
-  you already had.
-  Keep your existing PEBBLE_PALETTE array here.
-*/
-
+// Pebble 64-color palette
 const PEBBLE_PALETTE = [
-    { r: 0, g: 0, b: 0 },
-    { r: 0, g: 0, b: 85 },
-    { r: 0, g: 0, b: 170 },
-    { r: 85, g: 0, b: 0 },
-    { r: 0, g: 0, b: 255 },
-    { r: 85, g: 0, b: 85 },
-    { r: 85, g: 0, b: 170 },
-    { r: 0, g: 85, b: 0 },
-    { r: 170, g: 0, b: 85 },
-    { r: 0, g: 85, b: 170 },
-    { r: 170, g: 0, b: 170 },
-    { r: 85, g: 85, b: 0 },
-    { r: 255, g: 0, b: 0 },
-    { r: 0, g: 85, b: 255 },
-    { r: 170, g: 0, b: 255 },
-    { r: 85, g: 85, b: 85 },
-    { r: 0, g: 170, b: 0 },
-    { r: 170, g: 85, b: 0 },
-    { r: 85, g: 85, b: 255 },
-    { r: 255, g: 0, b: 255 },
-    { r: 0, g: 170, b: 85 },
-    { r: 170, g: 85, b: 85 },
-    { r: 0, g: 170, b: 170 },
-    { r: 170, g: 85, b: 170 },
-    { r: 170, g: 85, b: 255 },
-    { r: 85, g: 170, b: 85 },
-    { r: 255, g: 85, b: 85 },
-    { r: 85, g: 170, b: 170 },
-    { r: 255, g: 85, b: 170 },
-    { r: 0, g: 255, b: 0 },
-    { r: 170, g: 170, b: 0 },
-    { r: 85, g: 170, b: 255 },
-    { r: 0, g: 255, b: 170 },
-    { r: 170, g: 170, b: 170 },
-    { r: 85, g: 255, b: 0 },
-    { r: 255, g: 170, b: 0 },
-    { r: 0, g: 255, b: 255 },
-    { r: 170, g: 170, b: 255 },
-    { r: 85, g: 255, b: 85 },
-    { r: 255, g: 170, b: 85 },
-    { r: 85, g: 255, b: 255 },
-    { r: 255, g: 170, b: 255 },
-    { r: 170, g: 255, b: 85 },
-    { r: 170, g: 255, b: 170 },
-    { r: 255, g: 255, b: 0 },
-    { r: 170, g: 255, b: 255 },
-    { r: 255, g: 255, b: 85 },
-    { r: 255, g: 255, b: 170 },
-    { r: 170, g: 255, b: 0 },
-    { r: 170, g: 170, b: 85 },
-    { r: 255, g: 255, b: 255 },
-    { r: 85, g: 255, b: 170 },
-    { r: 255, g: 85, b: 255 },
-    { r: 85, g: 170, b: 0 },
-    { r: 255, g: 0, b: 85 },
-    { r: 170, g: 0, b: 0 },
-    { r: 0, g: 170, b: 255 },
-    { r: 255, g: 0, b: 170 },
-    { r: 0, g: 85, b: 85 },
-    { r: 255, g: 170, b: 170 },
-    { r: 0, g: 255, b: 85 },
-    { r: 255, g: 85, b: 0 },
-    { r: 85, g: 85, b: 170 },
-    { r: 85, g: 0, b: 255 }
+    {r:0,g:0,b:0},
+    {r:0,g:0,b:85},
+    {r:0,g:0,b:170},
+    {r:85,g:0,b:0},
+    {r:0,g:0,b:255},
+    {r:85,g:0,b:85},
+    {r:85,g:0,b:170},
+    {r:0,g:85,b:0},
+    {r:170,g:0,b:85},
+    {r:0,g:85,b:170},
+    {r:170,g:0,b:170},
+    {r:85,g:85,b:0},
+    {r:255,g:0,b:0},
+    {r:0,g:85,b:255},
+    {r:170,g:0,b:255},
+    {r:85,g:85,b:85},
+    {r:0,g:170,b:0},
+    {r:170,g:85,b:0},
+    {r:85,g:85,b:255},
+    {r:255,g:0,b:255},
+    {r:0,g:170,b:85},
+    {r:170,g:85,b:85},
+    {r:0,g:170,b:170},
+    {r:170,g:85,b:170},
+    {r:170,g:85,b:255},
+    {r:85,g:170,b:85},
+    {r:255,g:85,b:85},
+    {r:85,g:170,b:170},
+    {r:255,g:85,b:170},
+    {r:0,g:255,b:0},
+    {r:170,g:170,b:0},
+    {r:85,g:170,b:255},
+    {r:0,g:255,b:170},
+    {r:170,g:170,b:170},
+    {r:85,g:255,b:0},
+    {r:255,g:170,b:0},
+    {r:0,g:255,b:255},
+    {r:170,g:170,b:255},
+    {r:85,g:255,b:85},
+    {r:255,g:170,b:85},
+    {r:85,g:255,b:255},
+    {r:255,g:170,b:255},
+    {r:170,g:255,b:85},
+    {r:170,g:255,b:170},
+    {r:255,g:255,b:0},
+    {r:170,g:255,b:255},
+    {r:255,g:255,b:85},
+    {r:255,g:255,b:170},
+    {r:170,g:255,b:0},
+    {r:170,g:170,b:85},
+    {r:255,g:255,b:255},
+    {r:85,g:255,b:170},
+    {r:255,g:85,b:255},
+    {r:85,g:170,b:0},
+    {r:255,g:0,b:85},
+    {r:170,g:0,b:0},
+    {r:0,g:170,b:255},
+    {r:255,g:0,b:170},
+    {r:0,g:85,b:85},
+    {r:255,g:170,b:170},
+    {r:0,g:255,b:85},
+    {r:255,g:85,b:0},
+    {r:85,g:85,b:170},
+    {r:85,g:0,b:255}
 ];
 
 
 
+// Load image
 document
-    .getElementById("photoPicker")
-    .addEventListener("change", loadPhoto);
+.getElementById("photoPicker")
+.addEventListener(
+    "change",
+    loadPhoto
+);
 
 
 
+// Send image back to PebbleKit JS
 document
-    .getElementById("send")
-    .onclick = function () {
+.getElementById("send")
+.onclick = function()
+{
 
-        if (!imageBytes) {
-            alert("Select image first");
-            return;
-        }
+    if(!imageBytes)
+    {
+        alert("Select an image first");
+        return;
+    }
 
 
-        sendImage();
+    console.log(
+        "Sending bytes:",
+        imageBytes.length
+    );
 
+
+    let settings =
+    {
+        image:
+            Array.from(imageBytes)
     };
 
 
-
-function sendImage() {
-    let base64 =
-        arrayBufferToBase64(
-            imageBytes.buffer
+    document.location =
+        "pebblejs://close#" +
+        encodeURIComponent(
+            JSON.stringify(settings)
         );
-
-
-    let total =
-        Math.ceil(
-            base64.length / CHUNK_SIZE
-        );
-
-
-    for (let i = 0; i < total; i++) {
-        let chunk =
-            base64.substring(
-                i * CHUNK_SIZE,
-                (i + 1) * CHUNK_SIZE
-            );
-
-
-        Pebble.sendAppMessage(
-            {
-                image_chunk: chunk,
-                chunk_number: i,
-                total_chunks: total
-            });
-
-
-        console.log(
-            "Sending chunk",
-            i,
-            chunk.length
-        );
-    }
-}
+};
 
 
 
-function arrayBufferToBase64(buffer) {
-    let binary = "";
 
-    let bytes =
-        new Uint8Array(buffer);
+// Load selected photo
+function loadPhoto(event)
+{
 
-
-    for (let i = 0; i < bytes.length; i++) {
-        binary +=
-            String.fromCharCode(bytes[i]);
-    }
-
-
-    return btoa(binary);
-}
-
-
-
-function loadPhoto(event) {
     let file =
         event.target.files[0];
 
-    if (!file)
+
+    if(!file)
         return;
 
 
@@ -172,14 +136,23 @@ function loadPhoto(event) {
         new FileReader();
 
 
-    reader.onload = function (e) {
-        let img = new Image();
+    reader.onload =
+    function(e)
+    {
 
-        img.onload = function () {
+        let img =
+            new Image();
+
+
+        img.onload =
+        function()
+        {
             processImage(img);
         };
 
-        img.src = e.target.result;
+
+        img.src =
+            e.target.result;
     };
 
 
@@ -188,8 +161,11 @@ function loadPhoto(event) {
 
 
 
-function processImage(img) {
-    let canvas =
+
+function processImage(img)
+{
+
+    const canvas =
         document.getElementById("preview");
 
 
@@ -197,11 +173,14 @@ function processImage(img) {
     canvas.height = HEIGHT;
 
 
-    let ctx =
+    const ctx =
         canvas.getContext("2d");
 
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle =
+        "black";
+
+
     ctx.fillRect(
         0,
         0,
@@ -210,27 +189,40 @@ function processImage(img) {
     );
 
 
-    let scale =
+
+    // Crop-to-fill
+    const scale =
         Math.max(
             WIDTH / img.width,
             HEIGHT / img.height
         );
 
 
-    let w =
+    const drawWidth =
         img.width * scale;
 
-    let h =
+
+    const drawHeight =
         img.height * scale;
+
+
+    const x =
+        (WIDTH - drawWidth) / 2;
+
+
+    const y =
+        (HEIGHT - drawHeight) / 2;
+
 
 
     ctx.drawImage(
         img,
-        (WIDTH - w) / 2,
-        (HEIGHT - h) / 2,
-        w,
-        h
+        x,
+        y,
+        drawWidth,
+        drawHeight
     );
+
 
 
     let data =
@@ -244,56 +236,120 @@ function processImage(img) {
 
     imageBytes =
         convertToPebble(data);
+
+
+
+    console.log(
+        "Converted bytes:",
+        imageBytes.length
+    );
 }
 
 
 
-function convertToPebble(image) {
-    let out =
-        new Uint8Array(
-            WIDTH * HEIGHT
-        );
+
+function colorDistance(a,b)
+{
+
+    let dr =
+        a.r-b.r;
+
+    let dg =
+        a.g-b.g;
+
+    let db =
+        a.b-b.b;
 
 
-    let p = image.data;
-
-
-    for (let i = 0; i < out.length; i++) {
-        out[i] =
-            findClosestColorIndex(
-                p[i * 4],
-                p[i * 4 + 1],
-                p[i * 4 + 2]
-            );
-    }
-
-
-    return out;
+    return (
+        dr*dr +
+        dg*dg +
+        db*db
+    );
 }
 
 
 
-function findClosestColorIndex(r, g, b) {
-    let best = 0;
-    let min = Infinity;
+
+function findClosestColorIndex(r,g,b)
+{
+
+    let best =
+        0;
 
 
-    for (let i = 0; i < PEBBLE_PALETTE.length; i++) {
-        let c = PEBBLE_PALETTE[i];
+    let distance =
+        Infinity;
 
+
+
+    for(
+        let i=0;
+        i<PEBBLE_PALETTE.length;
+        i++
+    )
+    {
 
         let d =
-            (r - c.r) * (r - c.r) +
-            (g - c.g) * (g - c.g) +
-            (b - c.b) * (b - c.b);
+            colorDistance(
+                {
+                    r:r,
+                    g:g,
+                    b:b
+                },
+                PEBBLE_PALETTE[i]
+            );
 
 
-        if (d < min) {
-            min = d;
+        if(d < distance)
+        {
+            distance = d;
             best = i;
         }
     }
 
 
     return best;
+}
+
+
+
+
+
+function convertToPebble(image)
+{
+
+    let pixels =
+        image.data;
+
+
+    let output =
+        new Uint8Array(
+            WIDTH * HEIGHT
+        );
+
+
+    let index =
+        0;
+
+
+
+    for(
+        let i=0;
+        i<pixels.length;
+        i+=4
+    )
+    {
+
+        output[index++] =
+            findClosestColorIndex(
+                pixels[i],
+                pixels[i+1],
+                pixels[i+2]
+            );
+    }
+
+
+
+    return output;
 }
