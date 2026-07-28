@@ -1,8 +1,16 @@
 document
 .getElementById("send")
-.onclick = function () {
+.onclick = function() {
+
+    var message = {
+        hello: "PhotoFace works!"
+    };
+
 
     document.location =
-        "pebblejs://close#Hello";
+        "pebblejs://close#" +
+        encodeURIComponent(
+            JSON.stringify(message)
+        );
 
 };
