@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PhotoFace — Configuration</title>
+<title>PhotoWatch Rotate — Configuration</title>
 <style>
   body {
     font-family: -apple-system, Helvetica, Arial, sans-serif;
@@ -90,9 +90,30 @@
 <button class="primary" id="submitBtn" disabled>Send to watch</button>
 <div id="status"></div>
 
+<div id="debugLog" style="font-size:11px;color:#666;margin-top:16px;white-space:pre-wrap;border-top:1px solid #333;padding-top:8px;"></div>
+
 <canvas id="workCanvas"></canvas>
 
 <script>
+// ----------------------------------------------------------------------------
+// Debug helpers — visible without remote devtools
+// ----------------------------------------------------------------------------
+const debugLogEl = document.getElementById('debugLog');
+function debugLog(msg) {
+  const line = document.createElement('div');
+  line.textContent = new Date().toLocaleTimeString() + '  ' + msg;
+  debugLogEl.appendChild(line);
+  console.log(msg);
+}
+
+// Catches syntax/runtime errors that would otherwise fail completely silently
+// in a webview with no devtools attached.
+window.onerror = function(message, source, lineno, colno, error) {
+  alert('Page error: ' + message + ' (line ' + lineno + ')');
+  debugLog('ERROR: ' + message + ' at line ' + lineno);
+  return false;
+};
+
 // ----------------------------------------------------------------------------
 // Config
 // ----------------------------------------------------------------------------
@@ -115,6 +136,9 @@ const platform = getPlatform();
 const dims = PLATFORM_DIMENSIONS[platform] || PLATFORM_DIMENSIONS.pt2;
 
 document.getElementById('maxImages').textContent = MAX_IMAGES;
+
+debugLog('Script started. platform=' + platform + ' dims=' + dims.width + 'x' + dims.height);
+debugLog('window.location.href = ' + window.location.href);
 
 // ----------------------------------------------------------------------------
 // State
@@ -238,14 +262,76 @@ function setStatus(msg) {
 // ----------------------------------------------------------------------------
 // Submit — hand data back to pebble-js-app (index.js)
 // ----------------------------------------------------------------------------
-submitBtn.addEventListener('click', () => {
-  const settings = {
-    images: images.map(i => i.base64),
-    watch_style: document.getElementById('watchStyle').value,
-  };
 
-  const returnTo = `pebble://close#${encodeURIComponent(JSON.stringify(settings))}`;
-  document.location = returnTo;
+// Rough safety ceiling: some mobile webviews truncate or reject very long
+// pebble://close URLs. If you hit this, reduce MAX_IMAGES, lower the target
+// resolution in PLATFORM_DIMENSIONS, or send fewer photos at once.
+const MAX_PAYLOAD_BYTES = 150 * 1024; // ~150 KB
+
+// Warn (but don't silently fail) if this page was opened outside the real
+// Pebble config flow — pebble://close only does anything inside the app.
+const inPebbleWebview = /Pebble/i.test(navigator.userAgent) || window.location.search.includes('platform=');
+if (!inPebbleWebview) {
+  console.warn('This page does not appear to be running inside the Pebble app\'s configuration webview. "Send to watch" will not work when previewed in a normal browser.');
+}
+
+submitBtn.addEventListener('click', () => {
+  debugLog('Send button clicked. images=' + images.length);
+
+  try {
+    const settings = {
+      images: images.map(i => i.base64),
+      watch_style: document.getElementById('watchStyle').value,
+    };
+
+    const payload = encodeURIComponent(JSON.stringify(settings));
+    const payloadBytes = payload.length; // encodeURIComponent output is ASCII, 1 byte/char
+
+    debugLog('Encoded payload: ' + payloadBytes + ' bytes.');
+
+    if (payloadBytes > MAX_PAYLOAD_BYTES) {
+      setStatus(`Payload too large (${(payloadBytes / 1024).toFixed(0)} KB). Remove a photo or lower resolution and try again.`);
+      debugLog('Refused: payload exceeds MAX_PAYLOAD_BYTES (' + MAX_PAYLOAD_BYTES + ').');
+      return;
+    }
+
+    setStatus(`Sending ${images.length} photo(s), ${(payloadBytes / 1024).toFixed(1)} KB…`);
+    submitBtn.disabled = true;
+
+    const returnTo = 'pebble://close#' + payload;
+    debugLog('Navigating to pebble://close (payload omitted from log).');
+
+    // Give the status message a chance to paint before we navigate away.
+    setTimeout(() => {
+      // Method 1: direct navigation (standard documented approach).
+      document.location = returnTo;
+
+      // Method 2: synthetic anchor click, as a fallback — some webviews
+      // handle custom URI schemes more reliably via a real click event
+      // than via a script-driven location assignment.
+      setTimeout(() => {
+        debugLog('Still on page after Method 1 — trying anchor-click fallback.');
+        const a = document.createElement('a');
+        a.href = returnTo;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // If we're STILL here after both attempts, pebble://close is not
+        // being intercepted at all in this webview.
+        setTimeout(() => {
+          alert('Neither navigation method triggered a response from the Pebble app. This page may not be running inside the real config webview, or this app build does not support pebble://close.');
+          setStatus('No response from the Pebble app after two navigation attempts — see alert.');
+          submitBtn.disabled = false;
+        }, 800);
+      }, 800);
+    }, 50);
+  } catch (err) {
+    alert('Error building payload: ' + err.message);
+    debugLog('ERROR building payload: ' + err.message);
+    setStatus('Something went wrong preparing the data.');
+    submitBtn.disabled = false;
+  }
 });
 </script>
 </body>
