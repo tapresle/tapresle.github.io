@@ -2,8 +2,9 @@ document
 .getElementById("send")
 .onclick = function() {
 
-    var message = {
-        hello: "PhotoFace works!"
+    let message = {
+        command: "test",
+        value: "PhotoFace Connected!"
     };
 
 
@@ -12,5 +13,4 @@ document
         encodeURIComponent(
             JSON.stringify(message)
         );
-
 };
