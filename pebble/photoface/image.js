@@ -4,6 +4,75 @@ const HEIGHT = 168;
 let imageBytes = null;
 
 
+// 64-color Pebble palette
+const PEBBLE_PALETTE = [
+    {r:0,g:0,b:0},
+    {r:0,g:0,b:85},
+    {r:0,g:0,b:170},
+    {r:85,g:0,b:0},
+    {r:0,g:0,b:255},
+    {r:85,g:0,b:85},
+    {r:85,g:0,b:170},
+    {r:0,g:85,b:0},
+    {r:170,g:0,b:85},
+    {r:0,g:85,b:170},
+    {r:170,g:0,b:170},
+    {r:85,g:85,b:0},
+    {r:255,g:0,b:0},
+    {r:0,g:85,b:255},
+    {r:170,g:0,b:255},
+    {r:85,g:85,b:85},
+    {r:0,g:170,b:0},
+    {r:170,g:85,b:0},
+    {r:85,g:85,b:255},
+    {r:255,g:0,b:255},
+    {r:0,g:170,b:85},
+    {r:170,g:85,b:85},
+    {r:0,g:170,b:170},
+    {r:170,g:85,b:170},
+    {r:170,g:85,b:255},
+    {r:85,g:170,b:85},
+    {r:255,g:85,b:85},
+    {r:85,g:170,b:170},
+    {r:255,g:85,b:170},
+    {r:0,g:255,b:0},
+    {r:170,g:170,b:0},
+    {r:85,g:170,b:255},
+    {r:0,g:255,b:170},
+    {r:170,g:170,b:170},
+    {r:85,g:255,b:0},
+    {r:255,g:170,b:0},
+    {r:0,g:255,b:255},
+    {r:170,g:170,b:255},
+    {r:85,g:255,b:85},
+    {r:255,g:170,b:85},
+    {r:85,g:255,b:255},
+    {r:255,g:170,b:255},
+    {r:170,g:255,b:85},
+    {r:170,g:255,b:170},
+    {r:255,g:255,b:0},
+    {r:170,g:255,b:255},
+    {r:255,g:255,b:85},
+    {r:255,g:255,b:170},
+    {r:170,g:255,b:0},
+    {r:170,g:170,b:85},
+    {r:255,g:255,b:255},
+    {r:85,g:255,b:170},
+    {r:255,g:85,b:255},
+    {r:85,g:170,b:0},
+    {r:255,g:0,b:85},
+    {r:170,g:0,b:0},
+    {r:0,g:170,b:255},
+    {r:255,g:0,b:170},
+    {r:0,g:85,b:85},
+    {r:255,g:170,b:170},
+    {r:0,g:255,b:85},
+    {r:255,g:85,b:0},
+    {r:85,g:85,b:170},
+    {r:85,g:0,b:255}
+];
+
+
 document
     .getElementById("photoPicker")
     .addEventListener(
@@ -22,16 +91,22 @@ document
         }
 
 
-        let encoded =
-            JSON.stringify(
-                Array.from(imageBytes)
-            );
-
-
         console.log(
             "Sending bytes:",
             imageBytes.length
         );
+
+
+        console.log(
+            "First bytes:",
+            Array.from(imageBytes.slice(0,20))
+        );
+
+
+        let encoded =
+            JSON.stringify(
+                Array.from(imageBytes)
+            );
 
 
         document.location =
@@ -43,7 +118,7 @@ document
 
 function loadPhoto(event) {
 
-    const file =
+    let file =
         event.target.files[0];
 
 
@@ -51,13 +126,13 @@ function loadPhoto(event) {
         return;
 
 
-    const reader =
+    let reader =
         new FileReader();
 
 
     reader.onload = function(e) {
 
-        const img =
+        let img =
             new Image();
 
 
@@ -98,6 +173,7 @@ function processImage(img) {
     );
 
 
+    // Crop-to-fill
     const scale =
         Math.max(
             WIDTH / img.width,
@@ -130,7 +206,7 @@ function processImage(img) {
     );
 
 
-    const data =
+    let data =
         ctx.getImageData(
             0,
             0,
@@ -151,13 +227,78 @@ function processImage(img) {
 
 
 
+function colorDistance(a, b) {
+
+    let dr =
+        a.r - b.r;
+
+    let dg =
+        a.g - b.g;
+
+    let db =
+        a.b - b.b;
+
+
+    return (
+        dr * dr +
+        dg * dg +
+        db * db
+    );
+}
+
+
+
+function findClosestColorIndex(r, g, b) {
+
+    let minDiv =
+        Infinity;
+
+
+    let matchIndex =
+        0;
+
+
+    const target =
+        {
+            r:r,
+            g:g,
+            b:b
+        };
+
+
+    for(
+        let i = 0;
+        i < PEBBLE_PALETTE.length;
+        i++
+    )
+    {
+        let div =
+            colorDistance(
+                target,
+                PEBBLE_PALETTE[i]
+            );
+
+
+        if(div < minDiv)
+        {
+            minDiv = div;
+            matchIndex = i;
+        }
+    }
+
+
+    return matchIndex;
+}
+
+
+
 function convertToPebble(image) {
 
-    const pixels =
+    let pixels =
         image.data;
 
 
-    const output =
+    let output =
         new Uint8Array(
             WIDTH * HEIGHT
         );
@@ -166,14 +307,14 @@ function convertToPebble(image) {
     let offset = 0;
 
 
-    for (
+    for(
         let i = 0;
         i < pixels.length;
         i += 4
-    ) {
-
+    )
+    {
         output[offset++] =
-            packPixel(
+            findClosestColorIndex(
                 pixels[i],
                 pixels[i + 1],
                 pixels[i + 2]
@@ -182,25 +323,4 @@ function convertToPebble(image) {
 
 
     return output;
-}
-
-
-
-function packPixel(r, g, b)
-{
-    // Pebble 8-bit format:
-    // BBBBBGGG
-    // (Blue 5 bits, Green 3 bits)
-
-    let blue =
-        (b >> 3) & 0x1F;
-
-    let green =
-        (g >> 5) & 0x07;
-
-
-    return (
-        (blue << 3) |
-        green
-    );
 }
