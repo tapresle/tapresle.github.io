@@ -5,20 +5,18 @@ let imageBytes = null;
 
 
 document
-.getElementById("photoPicker")
-.addEventListener(
-    "change",
-    loadPhoto
-);
+    .getElementById("photoPicker")
+    .addEventListener(
+        "change",
+        loadPhoto
+    );
 
 
-function loadPhoto(event)
-{
+function loadPhoto(event) {
     const file =
         event.target.files[0];
 
-
-    if(!file)
+    if (!file)
         return;
 
 
@@ -26,14 +24,12 @@ function loadPhoto(event)
         new FileReader();
 
 
-    reader.onload = function(e)
-    {
+    reader.onload = function (e) {
         const img =
             new Image();
 
 
-        img.onload = function()
-        {
+        img.onload = function () {
             processImage(img);
         };
 
@@ -46,39 +42,45 @@ function loadPhoto(event)
     reader.readAsDataURL(file);
 }
 
+
 document
-.getElementById("send")
-.onclick=function()
-{
-    if(!imageBytes)
-    {
-        alert(
-            "Select an image first"
-        );
+    .getElementById("send")
+    .onclick = function () {
 
-        return;
-    }
+        if (!imageBytes) {
+            alert(
+                "Select an image first"
+            );
 
-
-    let encoded =
-        JSON.stringify(
-            Array.from(imageBytes)
-        );
+            return;
+        }
 
 
-    document.location =
-        "pebblejs://close#" +
-        encodeURIComponent(
-            encoded
-        );
-};
+        let encoded =
+            JSON.stringify(
+                Array.from(imageBytes)
+            );
 
-function processImage(img)
-{
+
+        document.location =
+            "pebblejs://close#" +
+            encodeURIComponent(
+                encoded
+            );
+    };
+
+
+
+function processImage(img) {
+
     const canvas =
         document.getElementById(
             "preview"
         );
+
+
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
 
 
     const ctx =
@@ -93,6 +95,7 @@ function processImage(img)
     );
 
 
+    // Crop image to exactly 144x168
     const scale =
         Math.max(
             WIDTH / img.width,
@@ -125,7 +128,7 @@ function processImage(img)
     );
 
 
-    let data =
+    const data =
         ctx.getImageData(
             0,
             0,
@@ -144,27 +147,15 @@ function processImage(img)
     );
 }
 
-function reduceColor(value)
-{
-    if(value < 43)
-        return 0;
 
-    if(value < 128)
-        return 85;
 
-    if(value < 213)
-        return 170;
+function convertToPebble(image) {
 
-    return 255;
-}
-
-function convertToPebble(image)
-{
-    let pixels =
+    const pixels =
         image.data;
 
 
-    let output =
+    const output =
         new Uint8Array(
             WIDTH * HEIGHT
         );
@@ -173,26 +164,22 @@ function convertToPebble(image)
     let offset = 0;
 
 
-    for(
+    for (
         let i = 0;
         i < pixels.length;
         i += 4
-    )
-    {
-        let r =
-            reduceColor(
-                pixels[i]
-            );
+    ) {
 
-        let g =
-            reduceColor(
-                pixels[i+1]
-            );
+        const r =
+            pixels[i];
 
-        let b =
-            reduceColor(
-                pixels[i+2]
-            );
+
+        const g =
+            pixels[i + 1];
+
+
+        const b =
+            pixels[i + 2];
 
 
         output[offset++] =
@@ -207,26 +194,27 @@ function convertToPebble(image)
     return output;
 }
 
-function channel(value)
-{
-    if(value === 0)
-        return 0;
-
-    if(value === 85)
-        return 1;
-
-    if(value === 170)
-        return 2;
-
-    return 3;
-}
 
 
-function packPixel(r,g,b)
-{
+// Pebble Time 2 GBitmapFormat8Bit
+// RRRGGGBB
+function packPixel(r, g, b) {
+
+    const red =
+        (r >> 5) & 0x07;
+
+
+    const green =
+        (g >> 5) & 0x07;
+
+
+    const blue =
+        (b >> 6) & 0x03;
+
+
     return (
-        (channel(r) << 4) |
-        (channel(g) << 2) |
-        channel(b)
+        (red << 5) |
+        (green << 2) |
+        blue
     );
 }
