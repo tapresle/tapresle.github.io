@@ -172,12 +172,13 @@ function processImage(img) {
         HEIGHT
     );
 
+    const size = 143;
 
     // Crop-to-fill
     const scale =
-        Math.max(
-            WIDTH / img.width,
-            HEIGHT / img.height
+        Math.min(
+            size / img.width,
+            size / img.height
         );
 
 
@@ -195,6 +196,15 @@ function processImage(img) {
 
     const y =
         (HEIGHT - newHeight) / 2;
+
+        ctx.fillStyle = "black";
+
+ctx.fillRect(
+    0,
+    0,
+    WIDTH,
+    HEIGHT
+);
 
 
     ctx.drawImage(
