@@ -186,24 +186,21 @@ function convertToPebble(image) {
 
 
 
-// Pebble 8-bit color test format
-function packPixel(r, g, b) {
+function packPixel(r, g, b)
+{
+    // Pebble 8-bit format:
+    // BBBBBGGG
+    // (Blue 5 bits, Green 3 bits)
 
-    let red =
-        (r >> 5) & 0x07;
-
+    let blue =
+        (b >> 3) & 0x1F;
 
     let green =
         (g >> 5) & 0x07;
 
 
-    let blue =
-        (b >> 6) & 0x03;
-
-
     return (
-        (red << 5) |
-        (green << 2) |
-        blue
+        (blue << 3) |
+        green
     );
 }
